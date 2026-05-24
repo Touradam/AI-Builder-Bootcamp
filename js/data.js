@@ -1,3 +1,36 @@
+const SITE_NAME = 'AI Education Program';
+
+const programTagline = 'Build tools that optimize your life — don\'t let AI use you.';
+
+const programOverview = {
+  intro:
+    'We are launching a 4-week live AI education program (3 sessions per week) designed for anyone — no prior technical background required.',
+  quote:
+    'Teach people how to understand AI, think critically about it, and use it to build real tools that improve their lives — without becoming dependent, manipulated, or replaced by it.',
+  body: [
+    'I believe AI is the most powerful tool humanity has ever created. Those who learn how to use it intentionally and responsibly will thrive in the coming years. Those who don\'t risk becoming passive users — or victims of it.',
+  ],
+};
+
+const programFocusAreas = [
+  {
+    title: 'Understanding AI',
+    description: 'Learn what AI really is, how it works, and how to evaluate its outputs critically.',
+  },
+  {
+    title: 'Machine Learning',
+    description: 'Gain a practical grasp of how machine learning works — principles over hype.',
+  },
+  {
+    title: 'Build Real Applications',
+    description: 'Develop hands-on skills to build websites, extensions, and AI-powered tools that improve your life.',
+  },
+  {
+    title: 'AI Literacy & Ethics',
+    description: 'Develop agency, ethical awareness, and the confidence to use AI deliberately — not passively.',
+  },
+];
+
 const INTAKE_FORM_URL =
   'https://touradam.notion.site/3682b0c9b12980368964cb112ed1af0c?pvs=105';
 
@@ -11,7 +44,7 @@ const INTAKE_FORM_EMBED_URL = '';
 // 2. Set the page title to INTAKE_FORM_TITLE.
 // 3. Add a text block below the title with INTAKE_FORM_SUBTITLE.
 // 4. Form settings → Confirmation message → paste INTAKE_FORM_CONFIRMATION.
-const INTAKE_FORM_TITLE = 'Apply to AI Builder Bootcamp';
+const INTAKE_FORM_TITLE = 'Apply to AI Education Program';
 const INTAKE_FORM_SUBTITLE =
   "Takes about 2 minutes. Week 1 is free — we'll email you cohort details and next steps.";
 const INTAKE_FORM_CONFIRMATION =
@@ -194,22 +227,19 @@ const programData = [
 ];
 
 const targetAudience = [
-  { title: 'Students', description: 'Build a portfolio of real projects and learn to use AI like a modern software builder' },
-  { title: 'Entrepreneurs', description: 'Turn ideas into websites, extensions, and AI tools for your business' },
-  { title: 'Creators', description: 'Ship live websites and apps without hiring a developer' },
-  { title: 'Small business owners', description: 'Build your online presence and productivity tools with AI' },
-  { title: 'Professionals', description: 'Boost productivity with AI-powered Chrome extensions and web apps' },
-  {
-    title: 'People intimidated by coding',
-    description: 'Start with a free week — no computer science background required',
-  },
+  { title: 'Students', description: 'Build a competitive edge and learn to use AI as a tool for real projects' },
+  { title: 'Entrepreneurs', description: 'Turn ideas into AI-powered tools and applications for your business' },
+  { title: 'Creatives', description: 'Enhance your creative work with AI while keeping your voice and agency' },
+  { title: 'Professionals', description: 'Stay ahead in your field with practical AI skills and critical thinking' },
+  { title: 'Non-technical people curious about AI', description: 'No programming or AI experience required — we start from the fundamentals' },
+  { title: 'Anyone who wants to use AI as a tool, not a crutch', description: 'Build literacy and confidence to use AI intentionally, not passively' },
 ];
 
 const corePhilosophy = [
-  'Learn how to build software with AI — not months of programming theory first',
-  'Week 1 is free so you experience real wins before committing to the full program',
-  'Fast wins build momentum — practical projects over heavy JavaScript theory',
-  'Teaching practical AI-powered building for non-technical people is our focus',
+  'Build tools that optimize your life — don\'t let AI use you.',
+  'AI is the most powerful tool humanity has created; learn to use it intentionally and responsibly.',
+  'Understanding principles matters more than passively consuming AI outputs.',
+  'The goal is agency, clarity, and empowerment — not dependency or replacement.',
 ];
 
 const programStats = [
@@ -230,7 +260,7 @@ const faqs = [
   {
     question: 'Do I need any prior programming experience?',
     answer:
-      'No! This bootcamp is designed for complete beginners. We teach you how to build software with AI using Cursor — no computer science background required. Week 1 is free so you can try it with zero risk.',
+      'No! This program is designed for complete beginners. We teach you how to build software with AI using Cursor — no computer science background required. Week 1 is free so you can try it with zero risk.',
   },
   {
     question: 'How does the free Week 1 work?',
