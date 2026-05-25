@@ -895,6 +895,32 @@ h2.section-title {
   border-radius: var(--radius-xl);
 }
 
+.instructor-card-header h3 {
+  margin: 1rem 0 0;
+  font-size: 1.5rem;
+}
+
+.instructor-bio {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.instructor-principles {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.instructor-principles li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1.0625rem;
+  color: var(--text-muted);
+}
+
 @media (min-width: 768px) {
   .instructor-card {
     padding: 3.5rem;
