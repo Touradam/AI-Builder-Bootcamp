@@ -1,4 +1,5 @@
 const SITE_NAME = 'AI Education Program';
+const LOGO_SRC = 'assets/logo.svg';
 
 const programTagline = 'Build tools that optimize your life — don\'t let AI use you.';
 

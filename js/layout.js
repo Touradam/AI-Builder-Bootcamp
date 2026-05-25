@@ -14,6 +14,7 @@ function getCurrentPage() {
 function renderHeader() {
   const current = getCurrentPage();
   const siteName = typeof SITE_NAME !== 'undefined' ? SITE_NAME : 'AI Education Program';
+  const logoSrc = typeof LOGO_SRC !== 'undefined' ? LOGO_SRC : 'assets/logo.svg';
   const navLinks = NAV_ITEMS.map(
     (item) =>
       `<a href="${item.href}" class="${item.href === current ? 'active' : ''}">${item.name}</a>`
@@ -24,7 +25,9 @@ function renderHeader() {
   header.innerHTML = `
     <nav class="container" aria-label="Main navigation">
       <div class="nav-row">
-        <a href="index.html" class="logo">${siteName}</a>
+        <a href="index.html" class="logo" aria-label="${siteName} home">
+          <img src="${logoSrc}" alt="${siteName}" class="logo-img" width="160" height="48" />
+        </a>
         <div class="nav-desktop">${navLinks}</div>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
           <span class="sr-only">Open menu</span>

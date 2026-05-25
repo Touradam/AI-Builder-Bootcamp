@@ -142,16 +142,22 @@ h1, h2, h3, h4 {
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--gold);
-  transition: color 0.2s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  transition: opacity 0.2s var(--ease);
 }
 
 .logo:hover {
-  color: var(--gold-light);
+  opacity: 0.9;
+}
+
+.logo-img {
+  display: block;
+  height: 2.75rem;
+  width: auto;
+  max-width: min(200px, 42vw);
+  object-fit: contain;
 }
 
 .nav-desktop {
@@ -923,17 +929,30 @@ h2.section-title {
 }
 
 .math-equation {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
   margin: 0;
-  font-size: 1.375rem;
+  padding: 0;
+  font-family: "Cambria Math", "Times New Roman", Georgia, serif;
+  font-size: 1.5rem;
+  line-height: 1;
   color: var(--text);
   white-space: nowrap;
-  vertical-align: middle;
 }
 
-.math-equation mrow {
-  display: inline;
-  white-space: nowrap;
+.math-sym {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.math-op,
+.math-num {
+  font-style: normal;
+  font-weight: 600;
 }
 
 .math-equation-note {
