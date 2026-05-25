@@ -919,13 +919,21 @@ h2.section-title {
   border: 1px solid var(--border);
   border-left: 3px solid var(--gold);
   border-radius: var(--radius-md);
+  text-align: center;
 }
 
 .math-equation {
-  display: block;
-  margin: 0 auto;
+  display: inline-block;
+  margin: 0;
   font-size: 1.375rem;
   color: var(--text);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.math-equation mrow {
+  display: inline;
+  white-space: nowrap;
 }
 
 .math-equation-note {
