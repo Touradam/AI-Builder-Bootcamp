@@ -158,25 +158,6 @@ function renderHomeAudience() {
     .join('');
 }
 
-function renderHomeProgramOverview() {
-  const container = document.getElementById('home-program-overview');
-  if (!container || typeof programOverview === 'undefined') return;
-
-  const focusList =
-    typeof programFocusAreas !== 'undefined'
-      ? `<ul class="overview-focus-list">
-        ${programFocusAreas.map((area) => `<li><span class="topic-dot"></span><span>${area.title}</span></li>`).join('')}
-      </ul>`
-      : '';
-
-  container.innerHTML = `
-    <p>${programOverview.intro}</p>
-    <blockquote class="program-quote">${programOverview.quote}</blockquote>
-    ${programOverview.body.map((paragraph) => `<p>${paragraph}</p>`).join('')}
-    ${focusList}
-  `;
-}
-
 function renderHomeFocusAreas() {
   const container = document.getElementById('home-focus-areas');
   if (!container || typeof programFocusAreas === 'undefined') return;
@@ -297,7 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProgramCurriculum();
   renderScheduleTimeline();
   renderFaqs();
-  renderHomeProgramOverview();
   renderHomeFocusAreas();
   renderHomeAudience();
   renderHomePhilosophy();
