@@ -221,12 +221,31 @@ const programData = [
 ];
 
 const targetAudience = [
-  { title: 'Students', description: 'Build a competitive edge and learn to use AI as a tool for real projects' },
-  { title: 'Entrepreneurs', description: 'Turn ideas into AI-powered tools and applications for your business' },
-  { title: 'Creatives', description: 'Enhance your creative work with AI while keeping your voice and agency' },
-  { title: 'Professionals', description: 'Stay ahead in your field with practical AI skills and critical thinking' },
-  { title: 'Non-technical people curious about AI', description: 'No programming or AI experience required — we start from the fundamentals' },
-  { title: 'Anyone who wants to use AI as a tool, not a crutch', description: 'Build literacy and confidence to use AI intentionally, not passively' },
+  {
+    title: 'Students & Recent Graduates',
+    description:
+      'Gain practical AI skills that give you a real edge in the job market. Learn how to use AI to optimize studying and job hunting, and stand out as a strong candidate.',
+  },
+  {
+    title: 'Entrepreneurs & Builders',
+    description:
+      'Turn ideas into real products. Learn how to use AI to create tools, automate work, and build online businesses.',
+  },
+  {
+    title: 'Creatives',
+    description:
+      'Expand your creativity with AI tools while maintaining your unique voice and creative control.',
+  },
+  {
+    title: 'Professionals',
+    description:
+      'Stay competitive in your field by learning how to use AI tools effectively and think critically about their outputs.',
+  },
+  {
+    title: 'Non-Technical Learners Curious About AI',
+    description:
+      'Start from the fundamentals. No coding or AI background is required—just curiosity and a desire to stay relevant.',
+  },
 ];
 
 const programStats = [
