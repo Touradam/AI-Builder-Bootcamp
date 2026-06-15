@@ -1,344 +1,184 @@
-const SITE_NAME = 'AI Education Program';
+const SITE_NAME = 'AI Mastery Program';
+const COPYRIGHT_HOLDER = 'Tourdam AI Lab';
 const LOGO_SRC = 'assets/logo.svg';
 
-const programTagline = 'Build tools that optimize your life — don\'t let AI use you.';
+const instructorProfile = {
+  name: 'Adama Touré',
+  role: 'AI Builder instructor',
+  lab: 'Tourdam AI Lab',
+  photo: 'assets/adama.jpg',
+  tagline: 'Click to learn more',
+  bio: [
+    'Adama Touré is a renewable energy engineer, entrepreneur, educator, and systems thinker dedicated to helping people use technology to improve their lives and create a better future.',
+    'Raised in Conakry, Guinea, where unreliable electricity and water scarcity were part of everyday life, Adama developed a deep commitment to solving the infrastructure challenges that limit human potential. His work is driven by a mission to expand access to clean energy, knowledge, and technology while helping communities become more resilient to climate and economic challenges.',
+    'With a multidisciplinary background spanning architecture, physics, mathematics, renewable energy engineering, and artificial intelligence, Adama brings a systems-level perspective to problem solving. He is the founder of SEPT (Solar Energy Protection Technology), where he develops intelligent hardware and machine learning solutions that make solar energy systems safer, smarter, and more reliable.',
+    'Beyond his work in renewable energy, Adama is passionate about teaching others how to understand and build with AI. He believes that AI will become one of the most important technologies of our time, and that the people who learn to work alongside it will have the greatest ability to create opportunities, solve problems, and shape the future.',
+    'His teaching philosophy is simple: technology should empower people, not replace them. Through this program, students will learn not only how to use AI tools, but how to think critically, build practical solutions, and become creators in the AI era rather than passive consumers of technology.',
+    'At his core, Adama is building more than technology—he is helping people develop the skills, mindset, and confidence needed to thrive in a rapidly changing world.',
+  ],
+};
 
-const programFocusAreas = [
-  {
-    title: 'Understand AI & Stay in Control',
-    description:
-      'Learn what AI is, how machines learn, and how to critically evaluate outputs so you stay in control of the technology—not the other way around.',
-  },
-  {
-    title: 'Master Key AI Tools & Concepts',
-    description:
-      'Get hands-on with the most powerful AI tools and core concepts shaping today\'s world, and learn how to use them effectively.',
-  },
-  {
-    title: 'Build with AI & Write Real Code',
-    description:
-      'Learn how to use AI to write code, build useful applications, and create your own tools and take control over your life.',
-  },
-  {
-    title: 'Become a Builder, Not a Bystander',
-    description:
-      'Develop the skills and mindset to work with AI—so you\'re among those who shape and direct it, not those replaced by it.',
-  },
-];
-
-const INTAKE_FORM_URL =
+const NOTION_FORM_URL =
   'https://touradam.notion.site/3682b0c9b12980368964cb112ed1af0c?pvs=105';
 
-// Notion blocks standard page URLs in iframes on external sites.
-// To embed in-page, use Share → Publish → Embed this page in Notion and set INTAKE_FORM_EMBED_URL.
-const INTAKE_FORM_EMBED_URL = '';
-
-// Keep in sync with the Notion form page title, subtitle, and confirmation message.
-// Notion update steps:
-// 1. Open the form page in your Notion workspace (not the public link).
-// 2. Set the page title to INTAKE_FORM_TITLE.
-// 3. Add a text block below the title with INTAKE_FORM_SUBTITLE.
-// 4. Form settings → Confirmation message → paste INTAKE_FORM_CONFIRMATION.
-const INTAKE_FORM_TITLE = 'Apply to AI Education Program';
-const INTAKE_FORM_SUBTITLE =
-  "Takes about 2 minutes. Week 1 is free — we'll email you cohort details and next steps.";
-const INTAKE_FORM_CONFIRMATION =
-  "Thanks — we got your application!\n\nWe'll review your responses and email you within 24 hours with cohort details, schedule, and how to join Week 1 free.\n\nQuestions before then? Email touradam3@gmail.com.";
-
 const cohortSchedule = {
-  firstSessionDate: '2026-06-05',
-  firstSessionDay: 'Friday, June 5, 2026',
+  firstSessionDate: '2026-07-10',
+  firstSessionDay: 'Friday, July 10, 2026',
   firstSessionTime: '7:00–8:00 PM PST',
-  firstSessionLabel: 'Session 1 · Introduction to AI & AI Tools',
+  firstSessionLabel: 'Session 1 · AI + Cursor intro',
   timezone: 'Pacific Time (PST)',
   fridayTime: '7:00–8:00 PM PST',
   saturdayTime: '8:00–10:00 AM PST',
   sundayTime: '8:00–10:00 AM PST',
-  weeklyScheduleSummary: 'Friday 7–8 PM · Saturday & Sunday 8–10 AM PST',
+  weeklyScheduleSummary: 'Friday 7–8 PM intro · Saturday & Sunday 8–10 AM practice & mastery PST',
 };
 
-const programData = [
+const betaLearnTopics = [
   {
-    id: 'week1',
-    title: 'Week 1 — FREE',
-    subtitle: 'Introduction to AI, tools & installations + build your first website',
-    days: [
-      {
-        id: 'w1s1',
-        title: 'Session 1: Introduction to AI & AI Tools',
-        subtitle: 'Understand AI fundamentals and install the tools you will use throughout the program',
-        schedule: 'Friday, June 5, 2026 · 7:00–8:00 PM PST',
-        duration: '1 hour',
-        dayOfWeek: 'friday',
-        topics: [
-          'What AI is — capabilities, limits, and how to think critically about it',
-          'How AI tools work in practice (ChatGPT, Cursor, and the modern AI stack)',
-          'Prompt engineering basics for effective communication with AI',
-          'Installing Cursor and setting up your development workspace',
-          'Git and GitHub setup for version control',
-          'Chrome and OpenAI API access for extensions and AI web apps',
-        ],
-      },
-      {
-        id: 'w1s2',
-        title: 'Session 2: Build a Website with AI',
-        subtitle: 'Project: Personal portfolio website',
-        dayOfWeek: 'saturday',
-        duration: '2 hours',
-        topics: [
-          'HTML basics',
-          'CSS basics',
-          'Website structure',
-          'Editing AI-generated code',
-          'Improving design using prompts',
-        ],
-      },
-      {
-        id: 'w1s3',
-        title: 'Session 3: Deploy Your Website',
-        subtitle: 'Project: Publish your first live website',
-        dayOfWeek: 'sunday',
-        duration: '2 hours',
-        topics: [
-          'Git basics',
-          'GitHub introduction',
-          'Deploying online',
-          'Sharing projects publicly',
-        ],
-      },
-    ],
+    title: 'Build with Cursor',
+    description:
+      'Use LLMs through Cursor to build real projects — even if you have never written code before.',
   },
   {
-    id: 'week2',
-    title: 'Week 2 — Chrome Extensions + Professional Workflow',
-    subtitle: '$300 · Build tools you use daily',
-    days: [
-      {
-        id: 'w2s1',
-        title: 'Session 1: Git & GitHub Workflow',
-        subtitle: 'Professional version control workflow',
-        dayOfWeek: 'friday',
-        duration: '1 hour',
-        topics: [
-          'Repositories',
-          'Commits',
-          'Branches',
-          'Push/pull',
-          'Collaboration workflow',
-        ],
-      },
-      {
-        id: 'w2s2',
-        title: 'Session 2: Chrome Extension Fundamentals',
-        subtitle: 'Project: Productivity Chrome extension',
-        dayOfWeek: 'saturday',
-        duration: '2 hours',
-        topics: [
-          'manifest.json',
-          'Browser APIs',
-          'DOM manipulation',
-          'Injecting scripts',
-        ],
-      },
-      {
-        id: 'w2s3',
-        title: 'Session 3: AI-Powered Chrome Tools',
-        subtitle: 'Projects: AI summarizer, LinkedIn helper, or email assistant',
-        dayOfWeek: 'sunday',
-        duration: '2 hours',
-        topics: [
-          'AI text summarizer extension',
-          'LinkedIn helper extension',
-          'AI email assistant extension',
-          'Building tools you actually use daily',
-        ],
-      },
-    ],
+    title: 'HTML, CSS & JavaScript',
+    description:
+      'Structure pages, style them, and add interactivity — websites, games, and useful tools.',
   },
   {
-    id: 'week3',
-    title: 'Week 3 — Build AI Web Apps',
-    subtitle: '$300 · From APIs to working AI tools',
-    days: [
-      {
-        id: 'w3s1',
-        title: 'Session 1: APIs & AI Integration',
-        subtitle: 'Project: AI chatbot',
-        dayOfWeek: 'friday',
-        duration: '1 hour',
-        topics: [
-          'APIs explained simply',
-          'OpenAI API',
-          'Fetch requests',
-          'AI responses',
-        ],
-      },
-      {
-        id: 'w3s2',
-        title: 'Session 2: Frontend + Backend Basics',
-        subtitle: 'Project: AI note summarizer',
-        dayOfWeek: 'saturday',
-        duration: '2 hours',
-        topics: [
-          'Simple backend concepts',
-          'Forms',
-          'User interaction',
-          'Data flow',
-        ],
-      },
-      {
-        id: 'w3s3',
-        title: 'Session 3: Build a Real AI Tool',
-        subtitle: 'Choose: business assistant, study helper, or content generator',
-        dayOfWeek: 'sunday',
-        duration: '2 hours',
-        topics: [
-          'AI business assistant',
-          'AI study helper',
-          'AI content generator',
-          'Customizing your AI tool with Cursor',
-        ],
-      },
-    ],
+    title: 'Git & GitHub',
+    description:
+      'Save your work, track changes, and collaborate with version control from day one.',
   },
   {
-    id: 'week4',
-    title: 'Week 4 — Launch & Capstone',
-    subtitle: '$300 · Deploy, polish, and present',
-    days: [
-      {
-        id: 'w4s1',
-        title: 'Session 1: Deployment & Hosting',
-        subtitle: 'Go live with Hostinger, Vercel, or GitHub Pages',
-        dayOfWeek: 'friday',
-        duration: '1 hour',
-        topics: [
-          'Domains',
-          'Hosting',
-          'Environment variables',
-          'Deployment workflow',
-          'Platforms: Hostinger, Vercel, GitHub Pages',
-        ],
-      },
-      {
-        id: 'w4s2',
-        title: 'Session 2: Capstone Build Session',
-        subtitle: 'Live coaching on your chosen final project',
-        dayOfWeek: 'saturday',
-        duration: '2 hours',
-        topics: [
-          'Choose: AI web app, Chrome extension, startup website, or productivity tool',
-          'Build and polish with live instructor support',
-          'Prepare GitHub repo and deployment',
-        ],
-      },
-      {
-        id: 'w4s3',
-        title: 'Session 3: Demo Day',
-        subtitle: 'Present your live app, repo, website, and extension',
-        dayOfWeek: 'sunday',
-        duration: '2 hours',
-        topics: [
-          'Present your capstone project to the cohort',
-          'Share your GitHub repository and live deployment',
-          'Portfolio credibility, community, and next steps',
-        ],
-      },
-    ],
+    title: 'Chrome Extensions',
+    description:
+      'Build browser tools that run where you work — including an AI-powered chatbox.',
+  },
+  {
+    title: 'AI APIs (safely)',
+    description:
+      'Connect OpenAI to your projects the right way — keys, requests, and safe patterns.',
+  },
+  {
+    title: 'Deploy & Host',
+    description:
+      'Ship projects live on GitHub Pages or Hostinger so anyone can use what you built.',
   },
 ];
 
-const targetAudience = [
+const betaGateDigits1 = [1, 2, 3, 5, 8];
+const betaGateDigits2 = [1, 2, 3, 5, 8];
+const betaGatePairs = [13, 21, 34, 55, 89];
+
+const floatingEquations = [
   {
-    title: 'Students & Recent Graduates',
-    description:
-      'Gain practical AI skills that give you a real edge in the job market. Learn how to use AI to optimize studying and job hunting, and stand out as a strong candidate.',
+    html: '<span class="math-sym">V</span><span class="math-op">=</span><span class="math-sym">I</span><span class="math-op">·</span><span class="math-sym">R</span>',
+    x: 6, y: 18, size: 1.35, rot: -8, duration: 22,
   },
   {
-    title: 'Entrepreneurs & Builders',
-    description:
-      'Turn ideas into real products. Learn how to use AI to create tools, automate work, and build online businesses.',
+    html: '<span class="math-sym">F</span><span class="math-op">=</span><span class="math-sym">m</span><span class="math-sym">a</span>',
+    x: 82, y: 12, size: 1.5, rot: 5, duration: 26,
   },
   {
-    title: 'Creatives',
-    description:
-      'Expand your creativity with AI tools while maintaining your unique voice and creative control.',
+    html: '<span class="math-sym">E</span><span class="math-op">=</span><span class="math-sym">mc</span><span class="math-op">²</span>',
+    x: 72, y: 78, size: 1.2, rot: -4, duration: 24,
   },
   {
-    title: 'Professionals',
-    description:
-      'Stay competitive in your field by learning how to use AI tools effectively and think critically about their outputs.',
+    html: '<span class="math-sym">P</span><span class="math-op">=</span><span class="math-sym">IV</span>',
+    x: 10, y: 82, size: 1.1, rot: 7, duration: 20,
   },
   {
-    title: 'Non-Technical Learners Curious About AI',
-    description:
-      'Start from the fundamentals. No coding or AI background is required—just curiosity and a desire to stay relevant.',
+    html: '<span class="math-sym">F</span><span class="math-op">=</span><span class="math-op">−</span><span class="math-sym">kx</span>',
+    x: 48, y: 8, size: 1.15, rot: -2, duration: 28,
+  },
+  {
+    html: '<span class="math-sym">v</span><span class="math-op">=</span><span class="math-sym">u</span><span class="math-op">+</span><span class="math-sym">at</span>',
+    x: 90, y: 48, size: 1.05, rot: 6, duration: 23,
+  },
+  {
+    html: '<span class="math-sym">W</span><span class="math-op">=</span><span class="math-sym">Fd</span>',
+    x: 4, y: 52, size: 1.25, rot: -6, duration: 25,
+  },
+  {
+    html: '<span class="math-sym">p</span><span class="math-op">=</span><span class="math-sym">mv</span>',
+    x: 58, y: 88, size: 1.1, rot: 3, duration: 21,
   },
 ];
 
-const programStats = [
-  { label: 'Duration', value: '4 Weeks' },
-  { label: 'Live Sessions', value: '12' },
-  { label: 'Week 1', value: 'Free' },
-  { label: 'Full Program', value: '$900' },
+const floatingEquationsHero = [
+  { html: '<span class="math-sym">V</span><span class="math-op">=</span><span class="math-sym">IR</span>', x: 88, y: 22, size: 2.2, rot: 12, duration: 30 },
+  { html: '<span class="math-sym">F</span><span class="math-op">=</span><span class="math-sym">ma</span>', x: 4, y: 38, size: 2.5, rot: -10, duration: 32 },
+  { html: '<span class="math-sym">E</span><span class="math-op">=</span><span class="math-sym">mc</span><span class="math-op">²</span>', x: 92, y: 62, size: 1.8, rot: 8, duration: 28 },
+  { html: '<span class="math-sym">P</span><span class="math-op">=</span><span class="math-sym">VI</span>', x: 2, y: 72, size: 1.6, rot: -5, duration: 26 },
 ];
 
-const pricingTiers = [
-  { week: 'Week 1', access: 'Free Trial Week', price: 'Free' },
-  { week: 'Week 2', access: 'Paid', price: '$300' },
-  { week: 'Week 3', access: 'Paid', price: '$300' },
-  { week: 'Week 4', access: 'Paid', price: '$300' },
+/* Hotspot bounds match course-roadmap.svg viewBox 1600×900 */
+const roadmapHotspots = [
+  { phase: 1, x: 5.9375, y: 32.778, w: 20, h: 34.444 },
+  { phase: 2, x: 28.625, y: 49.111, w: 20, h: 34.444 },
+  { phase: 3, x: 51.375, y: 32.778, w: 20, h: 34.444 },
+  { phase: 4, x: 74.0625, y: 49.111, w: 20, h: 34.444 },
 ];
 
-const faqs = [
+const roadmapPhases = [
   {
-    question: 'Do I need any prior programming experience?',
-    answer:
-      'No! This program is designed for complete beginners. We teach you how to build software with AI using Cursor — no computer science background required. Week 1 is free so you can try it with zero risk.',
+    id: 1,
+    tag: 'Week 1',
+    title: 'First Site',
+    lead: 'HTML, CSS, live deploy',
+    sessions: ['S1: AI + Cursor', 'S2: Build site', 'S3: GitHub Pages'],
+    outcome: 'Outcome: live website',
+    icon: '01',
+    summary: 'Leave week 1 with a live personal website on GitHub Pages.',
+    sessionDetails: [
+      { label: 'S1', day: 'Friday', type: 'Intro', title: 'AI + Cursor', description: 'What AI is, Cursor setup, and your first HTML page in the browser.' },
+      { label: 'S2', day: 'Saturday', type: 'Practice', title: 'Build site', description: 'Build a personal site with HTML and CSS — guided builds in Cursor.' },
+      { label: 'S3', day: 'Sunday', type: 'Mastery', title: 'GitHub Pages', description: 'Create a repo, push your code, and deploy a live URL you can share.' },
+    ],
   },
   {
-    question: 'How does the free Week 1 work?',
-    answer:
-      'Week 1 is completely free. You attend all 3 live sessions, build a portfolio website, set up GitHub, and deploy your first live site. After experiencing real results, you can decide whether to continue with Weeks 2–4 ($300 each).',
+    id: 2,
+    tag: 'Hands-on',
+    title: 'Interactivity',
+    lead: 'JavaScript + simple game',
+    sessions: ['S4: How the web works', 'S5: Build a game', 'S6: Git mastery'],
+    outcome: 'Outcome: playable game',
+    icon: '02',
+    summary: 'Leave week 2 with a playable browser game and confident Git basics.',
+    sessionDetails: [
+      { label: 'S4', day: 'Friday', type: 'Intro', title: 'How the web works', description: 'HTML, CSS, and JavaScript — how pages structure, style, and respond to clicks.' },
+      { label: 'S5', day: 'Saturday', type: 'Practice', title: 'Build a game', description: 'Build a simple browser game (tic-tac-toe, guess-the-number, or clicker).' },
+      { label: 'S6', day: 'Sunday', type: 'Mastery', title: 'Git mastery', description: 'Commits, history, branches, and shipping your game update to GitHub.' },
+    ],
   },
   {
-    question: 'What is the total cost of the program?',
-    answer:
-      'Week 1 is free. Weeks 2, 3, and 4 are $300 each. The full program is $900 after your free trial week. You only pay for weeks you choose to continue.',
+    id: 3,
+    tag: 'Build',
+    title: 'AI Extension',
+    lead: 'Chrome + OpenAI chat',
+    sessions: ['S7: Extension basics', 'S8: Build chat UI', 'S9: Connect API safely'],
+    outcome: 'Outcome: AI extension',
+    icon: '03',
+    summary: 'Leave week 3 with a Chrome extension that has a working AI chatbox.',
+    sessionDetails: [
+      { label: 'S7', day: 'Friday', type: 'Intro', title: 'Extension basics', description: 'Manifest, popup UI, permissions — and why API keys never go in frontend code.' },
+      { label: 'S8', day: 'Saturday', type: 'Practice', title: 'Build chat UI', description: 'Build the extension shell and chat interface in Cursor.' },
+      { label: 'S9', day: 'Sunday', type: 'Mastery', title: 'Connect API safely', description: 'Wire OpenAI chat end-to-end with a safe proxy pattern and test on real sites.' },
+    ],
   },
   {
-    question: 'What is the schedule?',
-    answer:
-      'The next cohort starts Friday, June 5, 2026 at 7:00 PM PST with Session 1. Live sessions run Friday 7–8 PM and Saturday & Sunday 8–10 AM (Pacific Time). The program runs 4 weeks with 3 live sessions per week (12 sessions total).',
-  },
-  {
-    question: 'When does the next cohort start?',
-    answer:
-      'The first live session is Friday, June 5, 2026 from 7:00–8:00 PM Pacific Time (PST). Ongoing sessions are Friday 7–8 PM and Saturday & Sunday 8–10 AM PST. Apply now to reserve your spot in Week 1 — it is completely free.',
-  },
-  {
-    question: 'What if I miss a session?',
-    answer:
-      'We recommend attending all live sessions for the best experience. Recordings and materials are provided so you can catch up between sessions.',
-  },
-  {
-    question: 'What technologies will we use?',
-    answer:
-      'Cursor, ChatGPT, Git, GitHub, HTML/CSS, Chrome extensions, OpenAI APIs, and deployment platforms like Hostinger, Vercel, and GitHub Pages.',
-  },
-  {
-    question: 'What will I have by the end of the program?',
-    answer:
-      'A deployed website, GitHub profile, Chrome extension, AI-powered web app, and a capstone project you present at Demo Day — plus confidence using AI for software creation.',
-  },
-  {
-    question: 'What bonus resources are included?',
-    answer:
-      'Students receive prompt templates, Cursor rules/templates, Git cheat sheets, a deployment checklist, and Chrome extension starter templates.',
-  },
-  {
-    question: 'Will there be ongoing support after the program?',
-    answer:
-      "Yes! You'll get access to our alumni community where you can continue learning, ask questions, and share projects with fellow graduates.",
+    id: 4,
+    tag: 'Ship',
+    title: 'Ship Tool',
+    lead: 'Capstone + hosting',
+    sessions: ['S10: Plan + hosting', 'S11: Build sprint', 'S12: Demo Day'],
+    outcome: 'Outcome: useful tool live',
+    icon: '04',
+    summary: 'Leave week 4 with a useful capstone tool deployed and ready to demo.',
+    sessionDetails: [
+      { label: 'S10', day: 'Friday', type: 'Intro', title: 'Plan + hosting', description: 'Pick your capstone tool, define v1 scope, and choose GitHub Pages or Hostinger.' },
+      { label: 'S11', day: 'Saturday', type: 'Practice', title: 'Build sprint', description: 'Build your capstone in Cursor — core features, UX polish, and edge cases.' },
+      { label: 'S12', day: 'Sunday', type: 'Mastery', title: 'Demo Day', description: 'Final deploy, demo rehearsal, peer feedback, and next steps.' },
+    ],
   },
 ];

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Education Program | Understand AI, Build Tools, Stay in Control</title>
-  <meta name="description" content="A 4-week live AI education program starting June 5, 2026. Week 1 is free. Learn to understand AI, think critically, and build real tools — no technical background required." />
+  <title>AI Mastery Program | Friends Beta</title>
+  <meta name="description" content="A friends-only beta of the AI Mastery Program. Learn to build websites, games, Chrome extensions, and useful tools with Cursor — no prior coding required." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -13,106 +13,128 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <main>
-    <section class="hero">
-      <div class="container text-center max-w-4xl">
-        <span class="hero-badge">Starts June 5 · Week 1 Free</span>
-        <h1>
-          <span class="highlight">Build tools that optimize your life</span>
-          — don't let AI use you.
-        </h1>
-        <div class="hero-intro">
-          <blockquote class="program-quote hero-quote">
-            We teach people how to understand AI, think critically about it, and use it to build real tools that improve their lives — without becoming dependent, manipulated, or replaced by it.
-          </blockquote>
-          <p class="lead">
-            We believe AI is the <strong>most powerful tool humanity has ever created</strong>.
-          </p>
-          <p class="lead">
-            Those who learn how to use it <strong>intentionally and responsibly</strong> will thrive in the coming years.
-          </p>
-          <p class="lead">
-            Those who don't risk becoming passive users — or victims of it.
-          </p>
+  <main class="roadmap-page">
+    <section class="roadmap-hero">
+      <div class="roadmap-bg" aria-hidden="true">
+        <div class="roadmap-spotlight" id="roadmap-spotlight"></div>
+        <div class="roadmap-particles" id="roadmap-particles" aria-hidden="true"></div>
+        <div class="roadmap-equations roadmap-equations--hero" id="roadmap-equations-hero" aria-hidden="true"></div>
+      </div>
+      <div class="container roadmap-header reveal-stagger">
+        <div class="roadmap-header-text">
+          <p class="roadmap-eyebrow reveal-item">AI Education Program · Friends Beta</p>
+          <h1 class="reveal-item">Course Roadmap</h1>
+          <p class="roadmap-subtitle reveal-item">From zero code to shipped projects with Cursor.</p>
+          <p class="cohort-start-banner reveal-item">First live session: <strong data-cohort-start>Friday, July 10, 2026 · 7:00–8:00 PM PST</strong></p>
+          <div class="countdown-wrap reveal-item" id="countdown-wrap" hidden>
+            <span class="countdown-label">Starts in</span>
+            <div class="countdown-timer" id="countdown-timer" aria-live="polite"></div>
+          </div>
         </div>
-        <p class="cohort-start-banner">First live session: <strong data-cohort-start>Friday, June 5, 2026 · 7:00–8:00 PM PST</strong></p>
+        <div class="roadmap-stats-pill reveal-item tilt-card">
+          <div class="roadmap-stats-col">
+            <span class="roadmap-stats-value">1 Month</span>
+            <span class="roadmap-stats-label">Live sessions</span>
+          </div>
+          <div class="roadmap-stats-divider" aria-hidden="true"></div>
+          <div class="roadmap-stats-col">
+            <span class="roadmap-stats-value">4 Phases</span>
+            <span class="roadmap-stats-label">Course path</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container roadmap-phase-nav reveal-on-scroll" id="roadmap-phase-nav" aria-label="Course phases"></div>
+
+      <div class="container roadmap-phase-detail reveal-on-scroll" id="roadmap-phase-detail" hidden></div>
+
+      <div class="container roadmap-visual-wrap reveal-on-scroll">
+        <div class="roadmap-svg-frame" id="roadmap-svg-frame">
+          <div class="roadmap-equations roadmap-equations--svg" id="roadmap-equations-svg" aria-hidden="true"></div>
+          <img
+            class="roadmap-svg-desktop"
+            src="assets/course-roadmap.svg"
+            alt="Course roadmap: First Site, Interactivity, AI Extension, and Ship Tool over four weeks"
+            width="1600"
+            height="900"
+          />
+          <div class="roadmap-hotspots" id="roadmap-hotspots" aria-hidden="true"></div>
+          <div class="roadmap-flip-overlays" id="roadmap-flip-overlays" aria-hidden="true"></div>
+        </div>
+        <div class="roadmap-cards-mobile" id="roadmap-cards-mobile" aria-label="Course roadmap"></div>
+      </div>
+
+      <div class="container reveal-on-scroll">
+        <div class="roadmap-footer-bar">
+          <p><strong>Schedule:</strong> <span data-weekly-schedule>Friday 7–8 PM intro · Saturday &amp; Sunday 8–10 AM practice &amp; mastery PST</span></p>
+          <p><strong>Tools:</strong> Cursor, ChatGPT, GitHub, OpenAI API, Chrome Extensions, GitHub Pages, Hostinger</p>
+        </div>
+      </div>
+
+      <div class="container roadmap-cta-row reveal-on-scroll">
         <div class="btn-group">
-          <a href="schedule.html" class="btn btn-primary">View Schedule</a>
-          <a href="contact.html#apply" class="btn btn-secondary">Apply Now</a>
+          <button type="button" id="join-beta-btn" class="btn btn-primary btn-shine">Join the Beta</button>
+          <a href="success.html" class="btn btn-secondary">Get Ready</a>
         </div>
-      </div>
-    </section>
-
-    <section class="stats-bar">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-value">4</div>
-            <div class="stat-label">Weeks</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">12</div>
-            <div class="stat-label">Live Sessions</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">Free</div>
-            <div class="stat-label">Week 1 Trial</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">$900</div>
-            <div class="stat-label">Full Program</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-gray">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">What you'll learn</span>
-          <h2 class="section-title">What This Program Focuses On</h2>
-          <p class="section-intro">
-            We are launching a 4-week live AI education program (3 sessions per week) designed for anyone — no prior technical background required.
-            Week 1 is free — experience real wins before committing. Then advance into Chrome extensions, AI web apps, Git &amp; GitHub for version control, deployment, and a final capstone project presented on Demo Day.
-          </p>
-        </div>
-        <div id="home-focus-areas" class="grid-4"></div>
-      </div>
-    </section>
-
-    <section class="section section-primary cta-band">
-      <div class="container text-center">
-        <span class="section-eyebrow">Get started</span>
-        <h2 class="section-title">Ready to Use AI With Intention?</h2>
-        <p class="section-intro">
-          Join our next cohort starting June 5 — start with a free week and build real tools from day one.
-        </p>
-        <div class="btn-group">
-          <a href="schedule.html" class="btn btn-primary">View Schedule</a>
-          <a href="contact.html#apply" class="btn btn-secondary">Apply Now</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-white">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">Audience</span>
-          <h2 class="section-title">Who This Program Is For</h2>
-          <p class="section-intro">
-            This program is designed for anyone who uses a computer in their work and wants to stay relevant in a world shaped by AI. No prior programming or AI experience is required.
-          </p>
-          <p class="section-intro">
-            It is especially valuable for recent graduates struggling to enter the job market, as it builds practical, in-demand skills to become a stronger candidate—or to start building independent online work and businesses.
-          </p>
-        </div>
-        <div id="home-audience" class="grid-2 grid-audience max-w-5xl" style="margin: 0 auto;"></div>
       </div>
     </section>
   </main>
 
+  <!-- Join modal: friendship message + code gate -->
+  <div id="join-modal" class="beta-modal-root" hidden>
+    <div class="beta-modal-overlay">
+      <div class="beta-modal beta-modal--join" role="dialog" aria-labelledby="join-modal-title" aria-modal="true">
+        <button type="button" class="beta-modal-dismiss" data-close-modal="join-modal" aria-label="Close">&times;</button>
+        <p class="beta-modal-eyebrow">From a friend</p>
+        <h3 id="join-modal-title">I'm glad you're here.</h3>
+        <div class="beta-modal-message">
+          <p>
+            I'm running this friends-only beta before I open it to the public. Your honest feedback will help me make it something truly worth sharing.
+          </p>
+          <p>
+            Thank you for trusting me with your time. It means more than you know.
+          </p>
+        </div>
+        <div id="beta-gate">
+          <div class="beta-gate-row" role="group" aria-label="Continue step">
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="beta-gate-1" class="beta-gate-input" aria-label="First value" autocomplete="off" />
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="beta-gate-2" class="beta-gate-input" aria-label="Second value" autocomplete="off" />
+            <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" id="beta-gate-3" class="beta-gate-input beta-gate-input--wide" aria-label="Third value" autocomplete="off" />
+          </div>
+          <p id="beta-gate-error" class="beta-gate-error" hidden>That didn't work. Try again.</p>
+          <div class="btn-group beta-gate-actions">
+            <button type="button" id="beta-gate-continue" class="btn btn-primary">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success modal: shown only after secret code entry -->
+  <div id="beta-success-modal" class="beta-modal-root" hidden>
+    <div class="beta-modal-overlay beta-modal-overlay--celebrate">
+      <div id="confetti-container" class="confetti-container" aria-hidden="true"></div>
+      <div class="beta-modal beta-modal--celebrate" role="dialog" aria-labelledby="beta-modal-title" aria-modal="true">
+        <div class="beta-celebrate-burst" aria-hidden="true"></div>
+        <div class="beta-modal-icon beta-modal-icon--celebrate" aria-hidden="true">&#10003;</div>
+        <h3 id="beta-modal-title">You did it — welcome in.</h3>
+        <div class="beta-modal-message">
+          <p>
+            I'm so happy you're joining me on this journey. Truly — thank you for being my friend.
+          </p>
+          <p class="beta-gift-quote">
+            This program is my gift to you — completely free — because you matter to me. Claim your free spot now to reserve your place in the beta.
+          </p>
+        </div>
+        <button type="button" id="beta-modal-close" class="btn btn-primary">Claim Your Free Spot — Sign Up</button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/data.js"></script>
   <script src="js/layout.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/beta-gate.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,4 +1,38 @@
+# OS / secrets
 .DS_Store
+Thumbs.db
 *.pem
 .env
 .env*.local
+
+# Internal docs & drafts (not served by the site)
+overview.md
+notion-form-copy.txt
+AI Builder Bootcamp for Beginners*.txt
+
+# Marketing / flyer assets (not referenced on site)
+AI Builder Logo.svg
+AI flyer background*.png
+AIWhy.png
+Ai Edu Flyer.*
+AiUnderstanding.png
+QR Coded.png
+
+# Team / promo images (not referenced on site)
+/adama.jpg
+/adama.png
+/adama.svg
+kabaraa.png
+kadjoumantoh.png
+kagnymafoh.png
+kagnymakeh.png
+kakolon.png
+katelen.png
+
+# Dev tooling
+.githooks/
+scripts/
+Classes/
+
+# Unused assets
+assets/qr-website.png
