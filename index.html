@@ -23,9 +23,12 @@
       <div class="container roadmap-header reveal-stagger">
         <div class="roadmap-header-text">
           <p class="roadmap-eyebrow reveal-item">AI Education Program · Friends Beta</p>
+          <blockquote class="roadmap-tagline program-quote reveal-item" data-program-tagline>
+            Learn how to build with AI before AI learns to replace you.
+          </blockquote>
           <h1 class="reveal-item">Course Roadmap</h1>
           <p class="roadmap-subtitle reveal-item">From zero code to shipped projects with Cursor.</p>
-          <p class="cohort-start-banner reveal-item">First live session: <strong data-cohort-start>Friday, July 10, 2026 · 7:00–8:00 PM PST</strong></p>
+          <p class="cohort-start-banner reveal-item">First live session: <strong data-cohort-start>Saturday, August 1, 2026 · 8:00–10:00 AM PDT</strong></p>
           <div class="countdown-wrap reveal-item" id="countdown-wrap" hidden>
             <span class="countdown-label">Starts in</span>
             <div class="countdown-timer" id="countdown-timer" aria-live="polite"></div>
@@ -33,12 +36,12 @@
         </div>
         <div class="roadmap-stats-pill reveal-item tilt-card">
           <div class="roadmap-stats-col">
-            <span class="roadmap-stats-value">1 Month</span>
+            <span class="roadmap-stats-value" data-cohort-duration>1.5 Months</span>
             <span class="roadmap-stats-label">Live sessions</span>
           </div>
           <div class="roadmap-stats-divider" aria-hidden="true"></div>
           <div class="roadmap-stats-col">
-            <span class="roadmap-stats-value">4 Phases</span>
+            <span class="roadmap-stats-value">6 Weeks</span>
             <span class="roadmap-stats-label">Course path</span>
           </div>
         </div>
@@ -54,7 +57,7 @@
           <img
             class="roadmap-svg-desktop"
             src="assets/course-roadmap.svg"
-            alt="Course roadmap: First Site, Interactivity, AI Extension, and Ship Tool over four weeks"
+            alt="Course roadmap: six weeks from first website and browser game to AI Chrome extension and shipped capstone tool"
             width="1600"
             height="900"
           />
@@ -64,10 +67,34 @@
         <div class="roadmap-cards-mobile" id="roadmap-cards-mobile" aria-label="Course roadmap"></div>
       </div>
 
-      <div class="container reveal-on-scroll">
+      <div class="container reveal-on-scroll roadmap-footer-wrap">
         <div class="roadmap-footer-bar">
-          <p><strong>Schedule:</strong> <span data-weekly-schedule>Friday 7–8 PM intro · Saturday &amp; Sunday 8–10 AM practice &amp; mastery PST</span></p>
-          <p><strong>Tools:</strong> Cursor, ChatGPT, GitHub, OpenAI API, Chrome Extensions, GitHub Pages, Hostinger</p>
+          <p class="roadmap-footer-item">
+            <strong>Schedule:</strong>
+            <span data-weekly-schedule>Saturday &amp; Sunday 8–10 AM practice &amp; mastery PDT</span>
+          </p>
+          <div class="roadmap-footer-item roadmap-footer-item--tools">
+            <strong>Tools:</strong>
+            <ul class="roadmap-footer-tools">
+              <li>Cursor</li>
+              <li>ChatGPT</li>
+              <li>GitHub</li>
+              <li>OpenAI</li>
+              <li>Chrome Extensions</li>
+              <li>GitHub Pages</li>
+              <li>Hostinger</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timezone-converter reveal-on-scroll" id="timezone-converter">
+          <div class="timezone-converter-header">
+            <p><strong>Your local time</strong></p>
+            <label class="timezone-select-wrap">
+              <span class="sr-only">Select timezone</span>
+              <select id="timezone-select" aria-label="Select timezone to check session times"></select>
+            </label>
+          </div>
+          <div class="timezone-converter-results" id="timezone-results" aria-live="polite"></div>
         </div>
       </div>
 

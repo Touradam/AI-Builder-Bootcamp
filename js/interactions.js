@@ -206,9 +206,8 @@ function renderFlipCardFront(phase) {
 
 function getSessionTime(day) {
   if (typeof cohortSchedule === 'undefined') return '';
-  if (day === 'Friday') return cohortSchedule.fridayTime.replace(' PST', '');
-  if (day === 'Saturday') return cohortSchedule.saturdayTime.replace(' PST', '');
-  if (day === 'Sunday') return cohortSchedule.sundayTime.replace(' PST', '');
+  if (day === 'Saturday') return cohortSchedule.saturdayTime.replace(/ P[DS]T/, '');
+  if (day === 'Sunday') return cohortSchedule.sundayTime.replace(/ P[DS]T/, '');
   return '';
 }
 
@@ -218,7 +217,7 @@ function renderFlipCardBack(phase) {
     <div class="roadmap-card-back-inner">
       <span class="roadmap-card-tag">${phase.tag}</span>
       <h3>${phase.title}</h3>
-      <p class="roadmap-flip-rhythm">Fri intro · Sat practice · Sun mastery</p>
+      <p class="roadmap-flip-rhythm">Saturday · Sunday</p>
       <ul class="roadmap-flip-sessions">
         ${details
           .map(
@@ -457,7 +456,7 @@ function initCountdown() {
   const timer = document.getElementById('countdown-timer');
   if (!wrap || !timer || typeof cohortSchedule === 'undefined') return;
 
-  const target = new Date(`${cohortSchedule.firstSessionDate}T19:00:00-07:00`);
+  const target = new Date(cohortSchedule.firstSessionDateTime || `${cohortSchedule.firstSessionDate}T08:00:00-07:00`);
   if (Number.isNaN(target.getTime()) || target.getTime() <= Date.now()) {
     wrap.remove();
     return;

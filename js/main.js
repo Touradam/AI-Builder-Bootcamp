@@ -23,6 +23,14 @@ function initMobileNav() {
   });
 }
 
+function renderProgramTagline() {
+  if (typeof programTagline === 'undefined') return;
+
+  document.querySelectorAll('[data-program-tagline]').forEach((el) => {
+    el.textContent = programTagline;
+  });
+}
+
 function renderCohortStart() {
   if (typeof cohortSchedule === 'undefined') return;
 
@@ -38,6 +46,113 @@ function renderCohortStart() {
       el.textContent = cohortSchedule.weeklyScheduleSummary;
     });
   }
+
+  if (cohortSchedule.durationLabel) {
+    document.querySelectorAll('[data-cohort-duration]').forEach((el) => {
+      el.textContent = cohortSchedule.durationLabel;
+    });
+  }
+}
+
+const timezoneOptions = [
+  { value: 'America/Los_Angeles', label: 'Pacific Time (PDT)' },
+  { value: 'America/Denver', label: 'Mountain Time (MDT)' },
+  { value: 'America/Chicago', label: 'Central Time (CDT)' },
+  { value: 'America/New_York', label: 'Eastern Time (EDT)' },
+  { value: 'America/Anchorage', label: 'Alaska Time (AKDT)' },
+  { value: 'Pacific/Honolulu', label: 'Hawaii Time (HST)' },
+  { value: 'Europe/London', label: 'London (BST)' },
+  { value: 'Europe/Paris', label: 'Central Europe (CEST)' },
+  { value: 'Europe/Berlin', label: 'Berlin (CEST)' },
+  { value: 'Africa/Lagos', label: 'West Africa (WAT)' },
+  { value: 'Africa/Johannesburg', label: 'South Africa (SAST)' },
+  { value: 'Africa/Conakry', label: 'Conakry (GMT)' },
+  { value: 'Asia/Dubai', label: 'Dubai (GST)' },
+  { value: 'Asia/Kolkata', label: 'India (IST)' },
+  { value: 'Asia/Shanghai', label: 'China (CST)' },
+  { value: 'Asia/Singapore', label: 'Singapore (SGT)' },
+  { value: 'Asia/Tokyo', label: 'Tokyo (JST)' },
+  { value: 'Australia/Sydney', label: 'Sydney (AEST)' },
+  { value: 'UTC', label: 'UTC' },
+];
+
+function getSessionWindow() {
+  const start = new Date(cohortSchedule.firstSessionDateTime);
+  const durationHours =
+    cohortSchedule.sessionDurationHours ??
+    cohortSchedule.sessionEndHour - cohortSchedule.sessionStartHour;
+  const end = new Date(start.getTime() + durationHours * 3600000);
+  return { start, end };
+}
+
+function formatTimeRangeInZone(startInstant, endInstant, zone) {
+  const timeFmt = new Intl.DateTimeFormat('en-US', {
+    timeZone: zone,
+    hour: 'numeric',
+    minute: '2-digit',
+  });
+  const dateFmt = new Intl.DateTimeFormat('en-CA', {
+    timeZone: zone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
+  const tzFmt = new Intl.DateTimeFormat('en-US', {
+    timeZone: zone,
+    timeZoneName: 'short',
+  });
+
+  const tz = tzFmt.formatToParts(startInstant).find((p) => p.type === 'timeZoneName')?.value || '';
+  const startTime = timeFmt.format(startInstant);
+  const endTime = timeFmt.format(endInstant);
+  const crossesDay = dateFmt.format(startInstant) !== dateFmt.format(endInstant);
+  const endLabel = crossesDay ? `${endTime} (next day)` : endTime;
+
+  return `${startTime}–${endLabel} ${tz}`;
+}
+
+function renderTimezoneConverter(zone) {
+  const results = document.getElementById('timezone-results');
+  if (!results || typeof cohortSchedule === 'undefined') return;
+
+  const { firstSessionDay, saturdayTime } = cohortSchedule;
+  const { start, end } = getSessionWindow();
+  const sessionTime = formatTimeRangeInZone(start, end, zone);
+  const label = timezoneOptions.find((o) => o.value === zone)?.label || zone;
+  const pacificTime = saturdayTime || cohortSchedule.firstSessionTime;
+
+  results.innerHTML = `
+    <div class="timezone-result-row">
+      <span class="timezone-result-label">Saturday &amp; Sunday</span>
+      <span class="timezone-result-value">${sessionTime}</span>
+    </div>
+    <p class="timezone-result-note">Every week at <strong>${pacificTime}</strong> Pacific · First session ${firstSessionDay} · Shown for <strong>${label}</strong></p>
+  `;
+}
+
+function initTimezoneConverter() {
+  const select = document.getElementById('timezone-select');
+  const results = document.getElementById('timezone-results');
+  if (!select || !results || typeof cohortSchedule === 'undefined') return;
+
+  const userZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const options = [...timezoneOptions];
+  if (!options.some((o) => o.value === userZone)) {
+    options.unshift({ value: userZone, label: `Your timezone (${userZone})` });
+  }
+
+  select.innerHTML = options
+    .map(
+      (o) =>
+        `<option value="${o.value}"${o.value === userZone ? ' selected' : ''}>${o.label}</option>`
+    )
+    .join('');
+
+  renderTimezoneConverter(userZone);
+
+  select.addEventListener('change', () => {
+    renderTimezoneConverter(select.value);
+  });
 }
 
 function renderBetaLearnTopics() {
@@ -136,7 +251,9 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHeader();
   renderFooter();
   initMobileNav();
+  renderProgramTagline();
   renderCohortStart();
+  initTimezoneConverter();
   renderBetaLearnTopics();
   renderInstructorCard();
   initInstructorFlipCard();

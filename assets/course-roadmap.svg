@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">AI Education Program course roadmap</title>
-  <desc id="desc">A four week course roadmap for the AI Education Program — from first website and browser game to AI Chrome extension and shipped capstone tool.</desc>
+  <desc id="desc">A six week course roadmap for the AI Education Program — from first website and browser game to AI Chrome extension and shipped capstone tool.</desc>
   <defs>
     <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0c0c0f"/>
@@ -34,6 +34,9 @@
     <pattern id="dotGrid" width="40" height="40" patternUnits="userSpaceOnUse">
       <circle cx="2" cy="2" r="1.2" fill="#c4a35a" opacity="0.18"/>
     </pattern>
+    <clipPath id="weekCardClip">
+      <rect width="242" height="292" rx="22"/>
+    </clipPath>
   </defs>
 
   <rect width="1600" height="900" fill="url(#bgGradient)"/>
@@ -56,7 +59,7 @@
 
     <g transform="translate(1180 76)">
       <rect x="0" y="0" width="300" height="96" rx="24" fill="#18181f" stroke="#c4a35a" stroke-opacity="0.32"/>
-      <text x="28" y="38" fill="#e2c887" font-size="25" font-weight="700">4 Weeks</text>
+      <text x="28" y="38" fill="#e2c887" font-size="25" font-weight="700">6 Weeks</text>
       <text x="28" y="72" fill="#eceae4" font-size="21">12 live sessions</text>
       <line x1="162" y1="22" x2="162" y2="74" stroke="#c4a35a" stroke-opacity="0.28"/>
       <text x="188" y="38" fill="#e2c887" font-size="25" font-weight="700">Friends</text>
@@ -68,70 +71,106 @@
   <path d="M195 460 C345 338 470 338 610 458 S875 592 1010 462 1270 330 1408 458" fill="none" stroke="url(#goldStroke)" stroke-width="8" stroke-linecap="round" filter="url(#goldBloom)"/>
 
   <g font-family="DM Sans, Segoe UI, Arial, sans-serif" filter="url(#softShadow)">
-    <g transform="translate(95 295)">
-      <rect width="320" height="310" rx="28" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
-      <circle cx="72" cy="68" r="42" fill="#c4a35a"/>
-      <text x="72" y="80" text-anchor="middle" fill="#0c0c0f" font-size="34" font-weight="800">1</text>
-      <text x="132" y="54" fill="#e2c887" font-size="18" font-weight="800" letter-spacing="2">WEEK 1</text>
-      <text x="132" y="89" fill="#eceae4" font-size="28" font-weight="800">First Site</text>
-      <text x="36" y="146" fill="#d8d5ce" font-size="20" font-weight="700">HTML, CSS, live deploy</text>
-      <text x="36" y="188" fill="#9c9a94" font-size="18">S1: AI + Cursor</text>
-      <text x="36" y="221" fill="#9c9a94" font-size="18">S2: Build site</text>
-      <text x="36" y="254" fill="#9c9a94" font-size="18">S3: GitHub Pages</text>
-      <rect x="36" y="274" width="188" height="28" rx="14" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
-      <text x="130" y="294" text-anchor="middle" fill="#e2c887" font-size="14" font-weight="700">Outcome: live website</text>
+    <g transform="translate(40 318)" clip-path="url(#weekCardClip)">
+      <rect width="242" height="292" rx="22" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
+      <circle cx="38" cy="42" r="24" fill="#c4a35a"/>
+      <text x="38" y="49" text-anchor="middle" fill="#0c0c0f" font-size="20" font-weight="800">1</text>
+      <text x="72" y="34" fill="#e2c887" font-size="11" font-weight="800" letter-spacing="1.2">WEEK 1</text>
+      <text x="72" y="52" fill="#eceae4" font-size="14" font-weight="800">
+        <tspan x="72" dy="0">AI + First</tspan>
+        <tspan x="72" dy="16">Site</tspan>
+      </text>
+      <text x="16" y="92" fill="#d8d5ce" font-size="11" font-weight="700">
+        <tspan x="16" dy="0">Cursor setup,</tspan>
+        <tspan x="16" dy="14">HTML &amp; CSS</tspan>
+      </text>
+      <text x="16" y="134" fill="#9c9a94" font-size="12">S1: AI + Cursor</text>
+      <text x="16" y="154" fill="#9c9a94" font-size="12">S2: Build site</text>
+      <rect x="16" y="228" width="210" height="38" rx="12" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
+      <text x="121" y="244" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">Outcome:</text>
+      <text x="121" y="258" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">site structure built</text>
     </g>
 
-    <g transform="translate(458 442)">
-      <rect width="320" height="310" rx="28" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
-      <circle cx="72" cy="68" r="42" fill="#c4a35a"/>
-      <text x="72" y="80" text-anchor="middle" fill="#0c0c0f" font-size="34" font-weight="800">2</text>
-      <text x="132" y="54" fill="#e2c887" font-size="18" font-weight="800" letter-spacing="2">WEEK 2</text>
-      <text x="132" y="89" fill="#eceae4" font-size="22" font-weight="800">Interactivity</text>
-      <text x="36" y="146" fill="#d8d5ce" font-size="17" font-weight="700">JavaScript + simple game</text>
-      <text x="36" y="188" fill="#9c9a94" font-size="17">S4: How the web works</text>
-      <text x="36" y="221" fill="#9c9a94" font-size="17">S5: Build a game</text>
-      <text x="36" y="254" fill="#9c9a94" font-size="17">S6: Git mastery</text>
-      <rect x="36" y="274" width="188" height="28" rx="14" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
-      <text x="130" y="294" text-anchor="middle" fill="#e2c887" font-size="14" font-weight="700">Outcome: playable game</text>
+    <g transform="translate(298 466)" clip-path="url(#weekCardClip)">
+      <rect width="242" height="292" rx="22" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
+      <circle cx="38" cy="42" r="24" fill="#c4a35a"/>
+      <text x="38" y="49" text-anchor="middle" fill="#0c0c0f" font-size="20" font-weight="800">2</text>
+      <text x="72" y="34" fill="#e2c887" font-size="11" font-weight="800" letter-spacing="1.2">WEEK 2</text>
+      <text x="72" y="52" fill="#eceae4" font-size="14" font-weight="800">Deploy Site</text>
+      <text x="16" y="84" fill="#d8d5ce" font-size="11" font-weight="700">
+        <tspan x="16" dy="0">GitHub Pages +</tspan>
+        <tspan x="16" dy="14">web foundations</tspan>
+      </text>
+      <text x="16" y="134" fill="#9c9a94" font-size="12">S3: GitHub Pages</text>
+      <text x="16" y="154" fill="#9c9a94" font-size="12">S4: How the web works</text>
+      <rect x="16" y="228" width="210" height="38" rx="12" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
+      <text x="121" y="244" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">Outcome:</text>
+      <text x="121" y="258" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">live website</text>
     </g>
 
-    <g transform="translate(822 295)">
-      <rect width="320" height="310" rx="28" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
-      <circle cx="72" cy="68" r="42" fill="#c4a35a"/>
-      <text x="72" y="80" text-anchor="middle" fill="#0c0c0f" font-size="34" font-weight="800">3</text>
-      <text x="132" y="54" fill="#e2c887" font-size="18" font-weight="800" letter-spacing="2">WEEK 3</text>
-      <text x="132" y="89" fill="#eceae4" font-size="22" font-weight="800">AI Extension</text>
-      <text x="36" y="146" fill="#d8d5ce" font-size="17" font-weight="700">Chrome + OpenAI chat</text>
-      <text x="36" y="188" fill="#9c9a94" font-size="17">S7: Extension basics</text>
-      <text x="36" y="221" fill="#9c9a94" font-size="17">S8: Build chat UI</text>
-      <text x="36" y="254" fill="#9c9a94" font-size="16">S9: Connect API safely</text>
-      <rect x="36" y="274" width="180" height="28" rx="14" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
-      <text x="126" y="294" text-anchor="middle" fill="#e2c887" font-size="14" font-weight="700">Outcome: AI extension</text>
+    <g transform="translate(556 318)" clip-path="url(#weekCardClip)">
+      <rect width="242" height="292" rx="22" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
+      <circle cx="38" cy="42" r="24" fill="#c4a35a"/>
+      <text x="38" y="49" text-anchor="middle" fill="#0c0c0f" font-size="20" font-weight="800">3</text>
+      <text x="72" y="34" fill="#e2c887" font-size="11" font-weight="800" letter-spacing="1.2">WEEK 3</text>
+      <text x="72" y="52" fill="#eceae4" font-size="14" font-weight="800">Build a Game</text>
+      <text x="16" y="92" fill="#d8d5ce" font-size="11" font-weight="700">JavaScript + Git</text>
+      <text x="16" y="134" fill="#9c9a94" font-size="12">S5: Build a game</text>
+      <text x="16" y="154" fill="#9c9a94" font-size="12">S6: Git mastery</text>
+      <rect x="16" y="228" width="210" height="38" rx="12" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
+      <text x="121" y="244" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">Outcome:</text>
+      <text x="121" y="258" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">playable game</text>
     </g>
 
-    <g transform="translate(1185 442)">
-      <rect width="320" height="310" rx="28" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
-      <circle cx="72" cy="68" r="42" fill="#c4a35a"/>
-      <text x="72" y="80" text-anchor="middle" fill="#0c0c0f" font-size="34" font-weight="800">4</text>
-      <text x="132" y="54" fill="#e2c887" font-size="18" font-weight="800" letter-spacing="2">WEEK 4</text>
-      <text x="132" y="89" fill="#eceae4" font-size="28" font-weight="800">Ship Tool</text>
-      <text x="36" y="146" fill="#d8d5ce" font-size="20" font-weight="700">Capstone + hosting</text>
-      <text x="36" y="188" fill="#9c9a94" font-size="18">S10: Plan + hosting</text>
-      <text x="36" y="221" fill="#9c9a94" font-size="18">S11: Build sprint</text>
-      <text x="36" y="254" fill="#9c9a94" font-size="18">S12: Demo Day</text>
-      <rect x="36" y="274" width="200" height="28" rx="14" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
-      <text x="136" y="294" text-anchor="middle" fill="#e2c887" font-size="13" font-weight="700">Outcome: useful tool live</text>
+    <g transform="translate(814 466)" clip-path="url(#weekCardClip)">
+      <rect width="242" height="292" rx="22" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
+      <circle cx="38" cy="42" r="24" fill="#c4a35a"/>
+      <text x="38" y="49" text-anchor="middle" fill="#0c0c0f" font-size="20" font-weight="800">4</text>
+      <text x="72" y="34" fill="#e2c887" font-size="11" font-weight="800" letter-spacing="1.2">WEEK 4</text>
+      <text x="72" y="52" fill="#eceae4" font-size="14" font-weight="800">
+        <tspan x="72" dy="0">Extension</tspan>
+        <tspan x="72" dy="16">Shell</tspan>
+      </text>
+      <text x="16" y="92" fill="#d8d5ce" font-size="11" font-weight="700">Chrome + chat UI</text>
+      <text x="16" y="134" fill="#9c9a94" font-size="12">S7: Extension basics</text>
+      <text x="16" y="154" fill="#9c9a94" font-size="12">S8: Build chat UI</text>
+      <rect x="16" y="228" width="210" height="38" rx="12" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
+      <text x="121" y="244" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">Outcome:</text>
+      <text x="121" y="258" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">extension UI ready</text>
     </g>
-  </g>
 
-  <g font-family="DM Sans, Segoe UI, Arial, sans-serif">
-    <g transform="translate(110 792)">
-      <rect width="1380" height="56" rx="28" fill="#18181f" stroke="#c4a35a" stroke-opacity="0.22"/>
-      <text x="42" y="36" fill="#eceae4" font-size="20" font-weight="700">Schedule:</text>
-      <text x="145" y="36" fill="#b8b5ae" font-size="18">Fri 7-8 PM intro · Sat &amp; Sun 8-10 AM practice &amp; mastery PST</text>
-      <text x="688" y="36" fill="#c4a35a" font-size="20" font-weight="700">Tools:</text>
-      <text x="758" y="36" fill="#b8b5ae" font-size="18">Cursor, ChatGPT, GitHub, OpenAI API, Chrome Extensions, GitHub Pages, Hostinger</text>
+    <g transform="translate(1072 318)" clip-path="url(#weekCardClip)">
+      <rect width="242" height="292" rx="22" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
+      <circle cx="38" cy="42" r="24" fill="#c4a35a"/>
+      <text x="38" y="49" text-anchor="middle" fill="#0c0c0f" font-size="20" font-weight="800">5</text>
+      <text x="72" y="34" fill="#e2c887" font-size="11" font-weight="800" letter-spacing="1.2">WEEK 5</text>
+      <text x="72" y="52" fill="#eceae4" font-size="14" font-weight="800">Connect AI</text>
+      <text x="16" y="84" fill="#d8d5ce" font-size="11" font-weight="700">
+        <tspan x="16" dy="0">Safe API +</tspan>
+        <tspan x="16" dy="14">capstone plan</tspan>
+      </text>
+      <text x="16" y="134" fill="#9c9a94" font-size="12">S9: Connect API</text>
+      <text x="16" y="154" fill="#9c9a94" font-size="12">S10: Plan + hosting</text>
+      <rect x="16" y="228" width="210" height="38" rx="12" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
+      <text x="121" y="244" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">Outcome:</text>
+      <text x="121" y="258" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">working AI chat</text>
+    </g>
+
+    <g transform="translate(1330 466)" clip-path="url(#weekCardClip)">
+      <rect width="242" height="292" rx="22" fill="url(#cardGradient)" stroke="#c4a35a" stroke-opacity="0.34"/>
+      <circle cx="38" cy="42" r="24" fill="#c4a35a"/>
+      <text x="38" y="49" text-anchor="middle" fill="#0c0c0f" font-size="20" font-weight="800">6</text>
+      <text x="72" y="34" fill="#e2c887" font-size="11" font-weight="800" letter-spacing="1.2">WEEK 6</text>
+      <text x="72" y="52" fill="#eceae4" font-size="14" font-weight="800">Demo Day</text>
+      <text x="16" y="84" fill="#d8d5ce" font-size="11" font-weight="700">
+        <tspan x="16" dy="0">Capstone sprint +</tspan>
+        <tspan x="16" dy="14">deploy</tspan>
+      </text>
+      <text x="16" y="134" fill="#9c9a94" font-size="12">S11: Build sprint</text>
+      <text x="16" y="154" fill="#9c9a94" font-size="12">S12: Demo Day</text>
+      <rect x="16" y="228" width="210" height="38" rx="12" fill="#c4a35a" fill-opacity="0.14" stroke="#c4a35a" stroke-opacity="0.28"/>
+      <text x="121" y="244" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">Outcome:</text>
+      <text x="121" y="258" text-anchor="middle" fill="#e2c887" font-size="10" font-weight="700">useful tool live</text>
     </g>
   </g>
 </svg>
