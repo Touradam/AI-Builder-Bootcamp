@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Mastery Program | Friends Beta</title>
-  <meta name="description" content="A friends-only beta of the AI Mastery Program. Learn to build websites, games, Chrome extensions, and useful tools with Cursor — no prior coding required." />
+  <title>AI Mastery Program | October Cohort</title>
+  <meta name="description" content="Join the October cohort of the AI Mastery Program. Build websites, games, Chrome extensions, and useful tools with Cursor — $100 per session, first 2 free with a referral code." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -22,13 +22,13 @@
       </div>
       <div class="container roadmap-header reveal-stagger">
         <div class="roadmap-header-text">
-          <p class="roadmap-eyebrow reveal-item">AI Education Program · Friends Beta</p>
+          <p class="roadmap-eyebrow reveal-item">AI Education Program · October Cohort</p>
           <blockquote class="roadmap-tagline program-quote reveal-item" data-program-tagline>
             Learn how to build with AI before AI learns to replace you.
           </blockquote>
           <h1 class="reveal-item">Course Roadmap</h1>
           <p class="roadmap-subtitle reveal-item">From zero code to shipped projects with Cursor.</p>
-          <p class="cohort-start-banner reveal-item">First live session: <strong data-cohort-start>Saturday, August 1, 2026 · 8:00–10:00 AM PDT</strong></p>
+          <p class="cohort-start-banner reveal-item">First live session: <strong data-cohort-start>Saturday, October 3, 2026 · 8:00–10:00 AM Pacific Time</strong></p>
           <div class="countdown-wrap reveal-item" id="countdown-wrap" hidden>
             <span class="countdown-label">Starts in</span>
             <div class="countdown-timer" id="countdown-timer" aria-live="polite"></div>
@@ -36,12 +36,12 @@
         </div>
         <div class="roadmap-stats-pill reveal-item tilt-card">
           <div class="roadmap-stats-col">
-            <span class="roadmap-stats-value" data-cohort-duration>1.5 Months</span>
-            <span class="roadmap-stats-label">Live sessions</span>
+            <span class="roadmap-stats-value" data-pricing-headline>$100/session</span>
+            <span class="roadmap-stats-label" data-pricing-subline>Referral: 2 free</span>
           </div>
           <div class="roadmap-stats-divider" aria-hidden="true"></div>
           <div class="roadmap-stats-col">
-            <span class="roadmap-stats-value">6 Weeks</span>
+            <span class="roadmap-stats-value" data-cohort-weeks>6 Weeks</span>
             <span class="roadmap-stats-label">Course path</span>
           </div>
         </div>
@@ -71,7 +71,7 @@
         <div class="roadmap-footer-bar">
           <p class="roadmap-footer-item">
             <strong>Schedule:</strong>
-            <span data-weekly-schedule>Saturday &amp; Sunday 8–10 AM practice &amp; mastery PDT</span>
+            <span data-weekly-schedule>Saturday &amp; Sunday 8–10 AM practice &amp; mastery Pacific Time</span>
           </p>
           <div class="roadmap-footer-item roadmap-footer-item--tools">
             <strong>Tools:</strong>
@@ -100,60 +100,57 @@
 
       <div class="container roadmap-cta-row reveal-on-scroll">
         <div class="btn-group">
-          <button type="button" id="join-beta-btn" class="btn btn-primary btn-shine">Join the Beta</button>
+          <button type="button" id="join-beta-btn" class="btn btn-primary btn-shine">Enroll Now</button>
           <a href="success.html" class="btn btn-secondary">Get Ready</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Join modal: friendship message + code gate -->
+  <!-- Referral code gate -->
   <div id="join-modal" class="beta-modal-root" hidden>
     <div class="beta-modal-overlay">
       <div class="beta-modal beta-modal--join" role="dialog" aria-labelledby="join-modal-title" aria-modal="true">
         <button type="button" class="beta-modal-dismiss" data-close-modal="join-modal" aria-label="Close">&times;</button>
-        <p class="beta-modal-eyebrow">From a friend</p>
-        <h3 id="join-modal-title">I'm glad you're here.</h3>
+        <p class="beta-modal-eyebrow">Have a referral code?</p>
+        <h3 id="join-modal-title">Unlock your first 2 sessions free.</h3>
         <div class="beta-modal-message">
           <p>
-            I'm running this friends-only beta before I open it to the public. Your honest feedback will help me make it something truly worth sharing.
-          </p>
-          <p>
-            Thank you for trusting me with your time. It means more than you know.
+            Enter the referral code you received to get Sessions 1 and 2 at no cost. Without a code, full tuition starts at Session 1.
           </p>
         </div>
         <div id="beta-gate">
-          <div class="beta-gate-row" role="group" aria-label="Continue step">
+          <div class="beta-gate-row" role="group" aria-label="Referral code">
             <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="beta-gate-1" class="beta-gate-input" aria-label="First value" autocomplete="off" />
             <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" id="beta-gate-2" class="beta-gate-input" aria-label="Second value" autocomplete="off" />
             <input type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" id="beta-gate-3" class="beta-gate-input beta-gate-input--wide" aria-label="Third value" autocomplete="off" />
           </div>
           <p id="beta-gate-error" class="beta-gate-error" hidden>That didn't work. Try again.</p>
           <div class="btn-group beta-gate-actions">
-            <button type="button" id="beta-gate-continue" class="btn btn-primary">Continue</button>
+            <button type="button" id="beta-gate-continue" class="btn btn-primary">Apply Referral Code</button>
           </div>
+          <p class="referral-skip-wrap">
+            <button type="button" id="skip-referral-btn" class="referral-skip-link">Continue without referral</button>
+          </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Success modal: shown only after secret code entry -->
-  <div id="beta-success-modal" class="beta-modal-root" hidden>
+  <!-- Enrollment modal: payment plan + signup -->
+  <div id="enroll-modal" class="beta-modal-root" hidden>
     <div class="beta-modal-overlay beta-modal-overlay--celebrate">
       <div id="confetti-container" class="confetti-container" aria-hidden="true"></div>
-      <div class="beta-modal beta-modal--celebrate" role="dialog" aria-labelledby="beta-modal-title" aria-modal="true">
-        <div class="beta-celebrate-burst" aria-hidden="true"></div>
-        <div class="beta-modal-icon beta-modal-icon--celebrate" aria-hidden="true">&#10003;</div>
-        <h3 id="beta-modal-title">You did it — welcome in.</h3>
+      <div class="beta-modal beta-modal--celebrate beta-modal--enroll" role="dialog" aria-labelledby="enroll-modal-title" aria-modal="true">
+        <button type="button" class="beta-modal-dismiss" data-close-modal="enroll-modal" aria-label="Close">&times;</button>
+        <h3 id="enroll-modal-title">Enroll in the October cohort</h3>
         <div class="beta-modal-message">
-          <p>
-            I'm so happy you're joining me on this journey. Truly — thank you for being my friend.
-          </p>
-          <p class="beta-gift-quote">
-            This program is my gift to you — completely free — because you matter to me. Claim your free spot now to reserve your place in the beta.
-          </p>
+          <p id="enroll-modal-summary">Choose how you want to pay for your sessions.</p>
+          <p id="enroll-total" class="enroll-total">Program total: $1,200</p>
         </div>
-        <button type="button" id="beta-modal-close" class="btn btn-primary">Claim Your Free Spot — Sign Up</button>
+        <div id="payment-plans-mount" class="payment-plans-grid" role="radiogroup" aria-label="Payment plan"></div>
+        <p class="pricing-policy-callout">Your class link will be sent after payment is confirmed.</p>
+        <button type="button" id="enroll-complete-btn" class="btn btn-primary" disabled>Complete Signup</button>
       </div>
     </div>
   </div>

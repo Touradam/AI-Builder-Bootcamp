@@ -20,25 +20,64 @@ const instructorProfile = {
 };
 
 const NOTION_FORM_URL =
-  'https://touradam.notion.site/3682b0c9b12980368964cb112ed1af0c?pvs=105';
+  'https://touradam.notion.site/3ae2b0c9b1298068a814eb7107ec24c9?pvs=105';
 
 const cohortSchedule = {
-  firstSessionDate: '2026-08-01',
-  firstSessionDateTime: '2026-08-01T08:00:00-07:00',
-  firstSessionDay: 'Saturday, August 1, 2026',
-  firstSessionTime: '8:00–10:00 AM PDT',
+  firstSessionDate: '2026-10-03',
+  firstSessionDateTime: '2026-10-03T08:00:00-07:00',
+  firstSessionDay: 'Saturday, October 3, 2026',
+  firstSessionTime: '8:00–10:00 AM Pacific Time',
   firstSessionLabel: 'Session 1 · AI + Cursor intro',
   timezone: 'America/Los_Angeles',
-  timezoneLabel: 'Pacific Time (PDT)',
-  durationLabel: '1.5 Months',
+  timezoneLabel: 'Pacific Time',
+  durationLabel: '6 Weeks',
   durationWeeks: 6,
-  saturdayTime: '8:00–10:00 AM PDT',
-  sundayTime: '8:00–10:00 AM PDT',
+  saturdayTime: '8:00–10:00 AM Pacific Time',
+  sundayTime: '8:00–10:00 AM Pacific Time',
   sessionStartHour: 8,
   sessionEndHour: 10,
   sessionDurationHours: 2,
-  weeklyScheduleSummary: 'Saturday & Sunday 8–10 AM practice & mastery PDT',
+  weeklyScheduleSummary: 'Saturday & Sunday 8–10 AM practice & mastery Pacific Time',
 };
+
+const cohortPricing = {
+  pricePerSession: 100,
+  sessionsPerWeek: 2,
+  totalSessions: 12,
+  referralFreeSessions: 2,
+  currency: 'USD',
+  withReferralTotal: 1000,
+  withoutReferralTotal: 1200,
+  headline: '$100/session',
+  referralSubline: 'Referral: 2 free',
+};
+
+const paymentPlans = [
+  {
+    id: 'per-session',
+    label: 'Per session',
+    amount: '$100/session',
+    note: 'Pay before each session',
+  },
+  {
+    id: 'per-week',
+    label: 'Per week',
+    amount: '$200/week',
+    note: 'Covers 2 live sessions',
+  },
+  {
+    id: 'half',
+    label: 'Half & half',
+    amount: '$500 + $500',
+    note: 'Two equal payments',
+  },
+  {
+    id: 'full',
+    label: 'Pay in full',
+    amount: 'Varies',
+    note: 'One upfront payment for the full program',
+  },
+];
 
 const betaLearnTopics = [
   {

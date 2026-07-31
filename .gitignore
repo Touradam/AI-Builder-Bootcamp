@@ -5,9 +5,17 @@ Thumbs.db
 .env
 .env*.local
 
+# Course modules & slide decks (local teaching materials)
+modules/
+
+# Local scratch & archived working files
+Archive/
+
 # Internal docs & drafts (not served by the site)
 overview.md
 notion-form-copy.txt
+notion-builders-hub-prompt.txt
+notion-builders-hub-setup.txt
 AI Builder Bootcamp for Beginners*.txt
 
 # Marketing / flyer assets (not referenced on site)

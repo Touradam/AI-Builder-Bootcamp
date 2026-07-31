@@ -52,6 +52,67 @@ function renderCohortStart() {
       el.textContent = cohortSchedule.durationLabel;
     });
   }
+
+  if (cohortSchedule.durationWeeks) {
+    document.querySelectorAll('[data-cohort-weeks]').forEach((el) => {
+      el.textContent = `${cohortSchedule.durationWeeks} Weeks`;
+    });
+  }
+}
+
+function formatPricingCurrency(amount) {
+  return `$${amount.toLocaleString('en-US')}`;
+}
+
+function renderCohortPricing() {
+  if (typeof cohortPricing === 'undefined') return;
+
+  document.querySelectorAll('[data-pricing-headline]').forEach((el) => {
+    el.textContent = cohortPricing.headline;
+  });
+
+  document.querySelectorAll('[data-pricing-subline]').forEach((el) => {
+    el.textContent = cohortPricing.referralSubline;
+  });
+}
+
+function renderPaymentPlans(hasReferral, onSelect) {
+  const mount = document.getElementById('payment-plans-mount');
+  if (!mount || typeof paymentPlans === 'undefined' || typeof cohortPricing === 'undefined') return;
+
+  const total = hasReferral ? cohortPricing.withReferralTotal : cohortPricing.withoutReferralTotal;
+  const half = total / 2;
+
+  mount.innerHTML = paymentPlans
+    .map((plan) => {
+      let amount = plan.amount;
+      if (plan.id === 'full') {
+        amount = formatPricingCurrency(total);
+      } else if (plan.id === 'half') {
+        amount = `${formatPricingCurrency(half)} + ${formatPricingCurrency(half)}`;
+      }
+
+      return `
+        <button type="button" class="payment-plan-card" data-plan-id="${plan.id}" aria-pressed="false">
+          <span class="payment-plan-label">${plan.label}</span>
+          <span class="payment-plan-amount">${amount}</span>
+          <span class="payment-plan-note">${plan.note}</span>
+        </button>
+      `;
+    })
+    .join('');
+
+  mount.querySelectorAll('.payment-plan-card').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      mount.querySelectorAll('.payment-plan-card').forEach((card) => {
+        card.classList.remove('is-selected');
+        card.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('is-selected');
+      btn.setAttribute('aria-pressed', 'true');
+      if (typeof onSelect === 'function') onSelect(btn.dataset.planId);
+    });
+  });
 }
 
 const timezoneOptions = [
@@ -253,6 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   renderProgramTagline();
   renderCohortStart();
+  renderCohortPricing();
   initTimezoneConverter();
   renderBetaLearnTopics();
   renderInstructorCard();

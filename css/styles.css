@@ -3065,6 +3065,105 @@ body.beta-modal-open {
   text-align: left !important;
 }
 
+.referral-skip-wrap {
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+.referral-skip-link {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.referral-skip-link:hover {
+  color: var(--gold-light);
+}
+
+.beta-modal--enroll {
+  max-width: 36rem;
+}
+
+.enroll-total {
+  font-weight: 600;
+  color: var(--gold-light) !important;
+  text-align: center !important;
+}
+
+.payment-plans-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.payment-plan-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(196, 163, 90, 0.28);
+  border-radius: var(--radius-md);
+  background: rgba(24, 24, 31, 0.85);
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.payment-plan-card:hover {
+  border-color: rgba(196, 163, 90, 0.5);
+}
+
+.payment-plan-card.is-selected {
+  border-color: var(--gold);
+  background: rgba(196, 163, 90, 0.12);
+  box-shadow: 0 0 0 1px rgba(196, 163, 90, 0.35);
+}
+
+.payment-plan-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--gold-light);
+}
+
+.payment-plan-amount {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.payment-plan-note {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.pricing-policy-callout {
+  padding: 0.875rem 1rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--gold-light);
+  background: rgba(196, 163, 90, 0.1);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  text-align: left;
+}
+
+.pricing-policy-callout--page {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .beta-modal-overlay--celebrate {
   position: relative;
 }
@@ -3197,5 +3296,9 @@ body.beta-modal-open {
   .beta-gate-input--wide {
     width: 4rem;
     min-width: 4rem;
+  }
+
+  .payment-plans-grid {
+    grid-template-columns: 1fr;
   }
 }

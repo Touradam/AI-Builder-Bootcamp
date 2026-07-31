@@ -1,5 +1,3 @@
-const BETA_FORM_REVOKED_KEY = 'betaFormRevoked';
-
 function isValidGateEntry(digit, allowedList) {
   if (digit === '' || digit === null || digit === undefined) return false;
   const num = parseInt(digit, 10);
@@ -28,14 +26,6 @@ function closeModal(modalId) {
   }
 }
 
-function revokeFormAccess() {
-  sessionStorage.setItem(BETA_FORM_REVOKED_KEY, 'true');
-}
-
-function isFormAccessRevoked() {
-  return sessionStorage.getItem(BETA_FORM_REVOKED_KEY) === 'true';
-}
-
 function openNotionForm() {
   if (typeof NOTION_FORM_URL !== 'undefined' && NOTION_FORM_URL && !NOTION_FORM_URL.startsWith('PASTE_')) {
     window.open(NOTION_FORM_URL, '_blank', 'noopener,noreferrer');
@@ -61,7 +51,7 @@ function spawnConfetti() {
   if (!container) return;
   container.innerHTML = '';
   const colors = ['#c4a35a', '#e2c887', '#9a7b3c', '#eceae4', '#c4a35a'];
-  for (let i = 0; i < 48; i += 1) {
+  for (let i = 0; i < 32; i += 1) {
     const piece = document.createElement('span');
     piece.className = 'confetti-piece';
     piece.style.left = `${Math.random() * 100}%`;
@@ -72,17 +62,22 @@ function spawnConfetti() {
   }
 }
 
-function showSuccessModal() {
-  spawnConfetti();
-  openModal('beta-success-modal');
+function getEnrollmentTotal(hasReferral) {
+  if (typeof cohortPricing === 'undefined') return hasReferral ? 1000 : 1200;
+  return hasReferral ? cohortPricing.withReferralTotal : cohortPricing.withoutReferralTotal;
+}
+
+function formatEnrollmentCurrency(amount) {
+  return `$${amount.toLocaleString('en-US')}`;
 }
 
 function initBetaGate() {
   const joinBtn = document.getElementById('join-beta-btn');
   const continueBtn = document.getElementById('beta-gate-continue');
+  const skipReferralBtn = document.getElementById('skip-referral-btn');
   const errorEl = document.getElementById('beta-gate-error');
-  const modalCloseBtn = document.getElementById('beta-modal-close');
-  const successModal = document.getElementById('beta-success-modal');
+  const enrollCompleteBtn = document.getElementById('enroll-complete-btn');
+  const enrollModal = document.getElementById('enroll-modal');
 
   const input1 = document.getElementById('beta-gate-1');
   const input2 = document.getElementById('beta-gate-2');
@@ -95,8 +90,7 @@ function initBetaGate() {
   const digits2 = typeof betaGateDigits2 !== 'undefined' ? betaGateDigits2 : [];
   const pairs = typeof betaGatePairs !== 'undefined' ? betaGatePairs : [];
 
-  let formClaimedThisVisit = false;
-  let successModalOpen = false;
+  let selectedPlanId = null;
 
   function clearError() {
     if (errorEl) errorEl.hidden = true;
@@ -185,26 +179,62 @@ function initBetaGate() {
   if (input2) handleDigitInput(input2, digits2, input3, input1, false);
   if (input3) handleDigitInput(input3, pairs, null, input2, true);
 
+  function resetGateInputs() {
+    if (!input1) return;
+    input1.value = '';
+    input2.value = '';
+    input3.value = '';
+    inputs.forEach((inp) => inp.classList.remove('is-valid', 'is-invalid'));
+    clearError();
+  }
+
   function openJoinModal() {
+    resetGateInputs();
     openModal('join-modal');
-    if (isFormAccessRevoked()) {
-      if (input1) {
-        input1.value = '';
-        input2.value = '';
-        input3.value = '';
-        inputs.forEach((inp) => inp.classList.remove('is-valid', 'is-invalid'));
-      }
-      showError('Your invitation window has closed. Reach out to your friend if you still want to join.');
-      return;
+    if (input1) setTimeout(() => input1.focus(), 200);
+  }
+
+  function setEnrollCompleteEnabled(enabled) {
+    if (enrollCompleteBtn) enrollCompleteBtn.disabled = !enabled;
+  }
+
+  function updateEnrollModal(hasReferral) {
+    selectedPlanId = null;
+    setEnrollCompleteEnabled(false);
+
+    const titleEl = document.getElementById('enroll-modal-title');
+    const summaryEl = document.getElementById('enroll-modal-summary');
+    const totalEl = document.getElementById('enroll-total');
+
+    if (titleEl) {
+      titleEl.textContent = hasReferral
+        ? 'Referral applied — first 2 sessions free'
+        : 'Enroll in the October cohort';
     }
-    if (input1) {
-      input1.value = '';
-      input2.value = '';
-      input3.value = '';
-      inputs.forEach((inp) => inp.classList.remove('is-valid', 'is-invalid'));
-      clearError();
-      setTimeout(() => input1.focus(), 200);
+
+    if (summaryEl) {
+      summaryEl.textContent = hasReferral
+        ? 'Sessions 1 and 2 are free. Choose how you want to pay for the remaining 10 sessions.'
+        : 'Full price starts at Session 1. Choose how you want to pay for all 12 sessions.';
     }
+
+    if (totalEl) {
+      totalEl.textContent = `Program total: ${formatEnrollmentCurrency(getEnrollmentTotal(hasReferral))}`;
+    }
+
+    if (typeof renderPaymentPlans === 'function') {
+      renderPaymentPlans(hasReferral, (planId) => {
+        selectedPlanId = planId;
+        setEnrollCompleteEnabled(true);
+      });
+    }
+  }
+
+  function showEnrollModal(hasReferral) {
+    if (hasReferral) spawnConfetti();
+    closeModal('join-modal');
+    updateEnrollModal(hasReferral);
+    openModal('enroll-modal');
   }
 
   joinBtn.addEventListener('click', openJoinModal);
@@ -219,29 +249,7 @@ function initBetaGate() {
     });
   });
 
-  function dismissSuccessWithoutClaim() {
-    if (!successModalOpen || formClaimedThisVisit) return;
-    successModalOpen = false;
-    revokeFormAccess();
-    closeModal('beta-success-modal');
-  }
-
-  function grantAccess() {
-    if (isFormAccessRevoked()) {
-      showError('Your invitation window has closed. Reach out to your friend if you still want to join.');
-      return;
-    }
-    closeModal('join-modal');
-    successModalOpen = true;
-    showSuccessModal();
-  }
-
   function onContinue() {
-    if (isFormAccessRevoked()) {
-      showError('Your invitation window has closed. Reach out to your friend if you still want to join.');
-      return;
-    }
-
     const box1 = input1 ? input1.value : '';
     const box2 = input2 ? input2.value : '';
     const box3 = input3 ? input3.value : '';
@@ -251,7 +259,7 @@ function initBetaGate() {
     const box3Ok = isValidGatePair(box3, pairs);
 
     if (box1Ok && box2Ok && box3Ok) {
-      grantAccess();
+      showEnrollModal(true);
     } else {
       showError();
     }
@@ -261,32 +269,34 @@ function initBetaGate() {
     continueBtn.addEventListener('click', onContinue);
   }
 
-  function claimSpotAndOpenForm() {
-    formClaimedThisVisit = true;
-    successModalOpen = false;
-    revokeFormAccess();
-    closeModal('beta-success-modal');
-    openNotionForm();
+  if (skipReferralBtn) {
+    skipReferralBtn.addEventListener('click', () => {
+      showEnrollModal(false);
+    });
   }
 
-  if (modalCloseBtn) {
-    modalCloseBtn.addEventListener('click', claimSpotAndOpenForm);
+  if (enrollCompleteBtn) {
+    enrollCompleteBtn.addEventListener('click', () => {
+      if (!selectedPlanId) return;
+      closeModal('enroll-modal');
+      openNotionForm();
+    });
   }
 
-  if (successModal) {
-    const successOverlay = successModal.querySelector('.beta-modal-overlay');
-    if (successOverlay) {
-      successOverlay.addEventListener('click', (e) => {
-        if (e.target === successOverlay) {
-          dismissSuccessWithoutClaim();
+  if (enrollModal) {
+    const enrollOverlay = enrollModal.querySelector('.beta-modal-overlay');
+    if (enrollOverlay) {
+      enrollOverlay.addEventListener('click', (e) => {
+        if (e.target === enrollOverlay) {
+          closeModal('enroll-modal');
         }
       });
     }
   }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && successModal && !successModal.hidden) {
-      dismissSuccessWithoutClaim();
+    if (e.key === 'Escape' && enrollModal && !enrollModal.hidden) {
+      closeModal('enroll-modal');
     }
   });
 }
