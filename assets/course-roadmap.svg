@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title id="title">AI Education Program course roadmap</title>
-  <desc id="desc">A six week course roadmap for the AI Education Program — from first website and browser game to AI Chrome extension and shipped capstone tool.</desc>
+  <desc id="desc">Course roadmap artwork. The live page shows the current cohort schedule in text.</desc>
   <defs>
     <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0c0c0f"/>

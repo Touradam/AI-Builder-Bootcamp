@@ -23,33 +23,54 @@ const NOTION_FORM_URL =
   'https://touradam.notion.site/3ae2b0c9b1298068a814eb7107ec24c9?pvs=105';
 
 const cohortSchedule = {
-  firstSessionDate: '2026-10-03',
-  firstSessionDateTime: '2026-10-03T08:00:00-07:00',
-  firstSessionDay: 'Saturday, October 3, 2026',
-  firstSessionTime: '8:00–10:00 AM Pacific Time',
-  firstSessionLabel: 'Session 1 · AI + Cursor intro',
+  cohortName: 'November Friends Cohort',
+  cohortEyebrow: 'AI Education Program · November Friends Cohort',
+  firstSessionDate: '2026-11-14',
+  firstSessionDateTime: '2026-11-14T08:00:00-08:00',
+  firstSessionDay: 'Saturday, November 14, 2026',
+  firstSessionTime: '8:00–9:30 AM Pacific Time',
+  firstSessionLabel: 'Session 1 · AI tools and your first page',
+  dateRangeLabel: 'November 14–22, 2026',
   timezone: 'America/Los_Angeles',
   timezoneLabel: 'Pacific Time',
-  durationLabel: '6 Weeks',
-  durationWeeks: 6,
-  saturdayTime: '8:00–10:00 AM Pacific Time',
-  sundayTime: '8:00–10:00 AM Pacific Time',
+  durationLabel: '2 Weeks',
+  durationWeeks: 2,
+  seats: 10,
+  offerLine: 'Free for friends · 10 seats',
+  paidProgramNote: 'The full paid program begins at the beginning of January 2027.',
+  saturdayTime: '8:00–9:30 AM',
+  sundayTime: '8:00–9:30 AM',
   sessionStartHour: 8,
-  sessionEndHour: 10,
-  sessionDurationHours: 2,
-  weeklyScheduleSummary: 'Saturday & Sunday 8–10 AM practice & mastery Pacific Time',
+  sessionEndHour: 9.5,
+  sessionDurationHours: 1.5,
+  weeklyScheduleSummary: 'Saturday & Sunday, 8:00–9:30 AM Pacific Time',
+};
+
+const cohortEnrollment = {
+  freeForFriends: true,
+  seats: 10,
+  cta: 'Reserve a Seat',
+  joinEyebrow: 'Friends cohort',
+  joinTitle: 'Claim one of 10 free seats.',
+  joinBody:
+    'Enter the code you received. This two-week cohort is free for friends, and seats are limited to 10.',
+  continueLabel: 'Claim My Seat',
+  enrollTitle: 'Reserve your free seat',
+  enrollSummary:
+    'Your code is in. Complete the form to claim your seat. We will send the class link after your seat is confirmed.',
+  enrollButton: 'Complete Signup',
 };
 
 const cohortPricing = {
-  pricePerSession: 100,
+  pricePerSession: 0,
   sessionsPerWeek: 2,
-  totalSessions: 12,
-  referralFreeSessions: 2,
+  totalSessions: 4,
+  referralFreeSessions: 4,
   currency: 'USD',
-  withReferralTotal: 1000,
-  withoutReferralTotal: 1200,
-  headline: '$100/session',
-  referralSubline: 'Referral: 2 free',
+  withReferralTotal: 0,
+  withoutReferralTotal: 0,
+  headline: 'Free',
+  referralSubline: '10 seats',
 };
 
 const paymentPlans = [
@@ -81,34 +102,24 @@ const paymentPlans = [
 
 const betaLearnTopics = [
   {
-    title: 'Build with Cursor',
+    title: 'AI tools for building',
     description:
-      'Use LLMs through Cursor to build real projects — even if you have never written code before.',
+      'Use Cursor and ChatGPT to build a real website, even if you have never written code before.',
   },
   {
-    title: 'HTML, CSS & JavaScript',
+    title: 'Pages that look finished',
     description:
-      'Structure pages, style them, and add interactivity — websites, games, and useful tools.',
+      'Structure the site, write the content, and shape the layout with AI beside you.',
   },
   {
     title: 'Git & GitHub',
     description:
-      'Save your work, track changes, and collaborate with version control from day one.',
+      'Save your work, track changes, and keep the project in a place you can update.',
   },
   {
-    title: 'Chrome Extensions',
+    title: 'Deploy the site',
     description:
-      'Build browser tools that run where you work — including an AI-powered chatbox.',
-  },
-  {
-    title: 'AI APIs (safely)',
-    description:
-      'Connect OpenAI to your projects the right way — keys, requests, and safe patterns.',
-  },
-  {
-    title: 'Deploy & Host',
-    description:
-      'Ship projects live on GitHub Pages or Hostinger so anyone can use what you built.',
+      'Publish on GitHub Pages so anyone with the link can open what you built.',
   },
 ];
 
@@ -172,85 +183,29 @@ const roadmapPhases = [
   {
     id: 1,
     tag: 'Week 1',
-    title: 'AI + First Site',
-    lead: 'Cursor setup, HTML & CSS',
-    sessions: ['S1: AI + Cursor', 'S2: Build site'],
-    outcome: 'Outcome: site structure built',
+    title: 'Build the Site',
+    lead: 'AI tools, pages, and layout',
+    sessions: ['S1: AI tools + first page', 'S2: Build the site'],
+    outcome: 'Outcome: website taking shape',
     icon: '01',
-    summary: 'End week 1 with your first HTML pages and a personal site started in Cursor.',
+    summary: 'End week 1 with a website you built using AI tools.',
     sessionDetails: [
-      { label: 'S1', day: 'Saturday', type: 'Intro', title: 'AI + Cursor', description: 'What AI is, Cursor setup, and your first HTML page in the browser.' },
-      { label: 'S2', day: 'Sunday', type: 'Practice', title: 'Build site', description: 'Build a personal site with HTML and CSS — guided builds in Cursor.' },
+      { label: 'S1', day: 'Saturday', type: 'Intro', title: 'AI tools and a first page', description: 'Set up Cursor, see how AI helps you build, and open your first page in the browser.' },
+      { label: 'S2', day: 'Sunday', type: 'Practice', title: 'Build the site', description: 'Use AI tools to add pages, write the content, and shape the layout.' },
     ],
   },
   {
     id: 2,
     tag: 'Week 2',
-    title: 'Deploy Site',
-    lead: 'GitHub Pages + Python',
-    sessions: ['S3: Git + GitHub Pages', 'S4: Python intro'],
-    outcome: 'Outcome: live website',
+    title: 'Deploy the Site',
+    lead: 'GitHub and a live URL',
+    sessions: ['S3: Git + GitHub', 'S4: Deploy live'],
+    outcome: 'Outcome: website online',
     icon: '02',
-    summary: 'End week 2 with a live personal website on GitHub Pages and your first steps in Python.',
+    summary: 'End week 2 with your website deployed so anyone can open it.',
     sessionDetails: [
-      { label: 'S3', day: 'Saturday', type: 'Mastery', title: 'Git + GitHub Pages', description: 'Create a GitHub account, commit with good habits, push your portfolio, and deploy a live URL.' },
-      { label: 'S4', day: 'Sunday', type: 'Intro', title: 'Python intro', description: 'Install Python, write your first script in Cursor, and see why Python powers so much of AI.' },
-    ],
-  },
-  {
-    id: 3,
-    tag: 'Week 3',
-    title: 'Build a Game',
-    lead: 'Browser game + Git mastery',
-    sessions: ['S5: Browser game or tool', 'S6: Git mastery'],
-    outcome: 'Outcome: playable game',
-    icon: '03',
-    summary: 'End week 3 with a playable browser game or useful tool and deeper Git confidence.',
-    sessionDetails: [
-      { label: 'S5', day: 'Saturday', type: 'Practice', title: 'Browser game or tool', description: 'Build a simple browser game or useful tool (student choice) with HTML, CSS, and JavaScript.' },
-      { label: 'S6', day: 'Sunday', type: 'Mastery', title: 'Git mastery', description: 'History, branches, and shipping your game or tool updates to GitHub.' },
-    ],
-  },
-  {
-    id: 4,
-    tag: 'Week 4',
-    title: 'Extension Shell',
-    lead: 'Chrome + chat UI',
-    sessions: ['S7: Extension basics', 'S8: Build chat UI'],
-    outcome: 'Outcome: extension UI ready',
-    icon: '04',
-    summary: 'End week 4 with a Chrome extension shell and chat interface.',
-    sessionDetails: [
-      { label: 'S7', day: 'Saturday', type: 'Intro', title: 'Extension basics', description: 'Manifest, popup UI, permissions — and why API keys never go in frontend code.' },
-      { label: 'S8', day: 'Sunday', type: 'Practice', title: 'Build chat UI', description: 'Build the extension shell and chat interface in Cursor.' },
-    ],
-  },
-  {
-    id: 5,
-    tag: 'Week 5',
-    title: 'Connect AI',
-    lead: 'Safe API + capstone plan',
-    sessions: ['S9: Connect API safely', 'S10: Plan + hosting'],
-    outcome: 'Outcome: working AI chat',
-    icon: '05',
-    summary: 'End week 5 with a working AI extension and capstone plan.',
-    sessionDetails: [
-      { label: 'S9', day: 'Saturday', type: 'Mastery', title: 'Connect API safely', description: 'Wire OpenAI chat end-to-end with a safe proxy pattern and test on real sites.' },
-      { label: 'S10', day: 'Sunday', type: 'Intro', title: 'Plan + hosting', description: 'Pick your capstone tool, define v1 scope, and choose GitHub Pages or Hostinger.' },
-    ],
-  },
-  {
-    id: 6,
-    tag: 'Week 6',
-    title: 'Demo Day',
-    lead: 'Capstone sprint + deploy',
-    sessions: ['S11: Build sprint', 'S12: Demo Day'],
-    outcome: 'Outcome: useful tool live',
-    icon: '06',
-    summary: 'End week 6 with a useful capstone tool deployed and ready to demo.',
-    sessionDetails: [
-      { label: 'S11', day: 'Saturday', type: 'Practice', title: 'Build sprint', description: 'Build your capstone in Cursor — core features, UX polish, and edge cases.' },
-      { label: 'S12', day: 'Sunday', type: 'Mastery', title: 'Demo Day', description: 'Final deploy, demo rehearsal, peer feedback, and next steps.' },
+      { label: 'S3', day: 'Saturday', type: 'Practice', title: 'Git and GitHub', description: 'Save your work, commit with clear habits, and push the site to GitHub.' },
+      { label: 'S4', day: 'Sunday', type: 'Mastery', title: 'Deploy live', description: 'Publish on GitHub Pages, open the live link, and learn how to update it.' },
     ],
   },
 ];

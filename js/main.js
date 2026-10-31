@@ -58,6 +58,47 @@ function renderCohortStart() {
       el.textContent = `${cohortSchedule.durationWeeks} Weeks`;
     });
   }
+
+  const cohortEyebrow = cohortSchedule.cohortEyebrow
+    || (cohortSchedule.cohortName ? `AI Education Program · ${cohortSchedule.cohortName}` : '');
+
+  if (cohortEyebrow) {
+    document.querySelectorAll('[data-cohort-eyebrow]').forEach((el) => {
+      el.textContent = cohortEyebrow;
+    });
+  }
+
+  if (cohortSchedule.cohortName) {
+    document.querySelectorAll('[data-cohort-name]').forEach((el) => {
+      el.textContent = cohortSchedule.cohortName;
+    });
+  }
+
+  if (cohortSchedule.offerLine) {
+    document.querySelectorAll('[data-cohort-offer]').forEach((el) => {
+      el.textContent = cohortSchedule.offerLine;
+    });
+  }
+
+  if (cohortSchedule.dateRangeLabel) {
+    document.querySelectorAll('[data-cohort-range]').forEach((el) => {
+      el.textContent = cohortSchedule.dateRangeLabel;
+    });
+  }
+
+  if (cohortSchedule.paidProgramNote) {
+    document.querySelectorAll('[data-paid-program]').forEach((el) => {
+      el.textContent = cohortSchedule.paidProgramNote;
+    });
+  }
+
+  document.querySelectorAll('[data-cohort-day]').forEach((el) => {
+    el.textContent = firstSessionDay;
+  });
+
+  document.querySelectorAll('[data-cohort-time]').forEach((el) => {
+    el.textContent = firstSessionTime;
+  });
 }
 
 function formatPricingCurrency(amount) {
@@ -116,15 +157,15 @@ function renderPaymentPlans(hasReferral, onSelect) {
 }
 
 const timezoneOptions = [
-  { value: 'America/Los_Angeles', label: 'Pacific Time (PDT)' },
-  { value: 'America/Denver', label: 'Mountain Time (MDT)' },
-  { value: 'America/Chicago', label: 'Central Time (CDT)' },
-  { value: 'America/New_York', label: 'Eastern Time (EDT)' },
-  { value: 'America/Anchorage', label: 'Alaska Time (AKDT)' },
-  { value: 'Pacific/Honolulu', label: 'Hawaii Time (HST)' },
-  { value: 'Europe/London', label: 'London (BST)' },
-  { value: 'Europe/Paris', label: 'Central Europe (CEST)' },
-  { value: 'Europe/Berlin', label: 'Berlin (CEST)' },
+  { value: 'America/Los_Angeles', label: 'Pacific Time' },
+  { value: 'America/Denver', label: 'Mountain Time' },
+  { value: 'America/Chicago', label: 'Central Time' },
+  { value: 'America/New_York', label: 'Eastern Time' },
+  { value: 'America/Anchorage', label: 'Alaska Time' },
+  { value: 'Pacific/Honolulu', label: 'Hawaii Time' },
+  { value: 'Europe/London', label: 'London' },
+  { value: 'Europe/Paris', label: 'Central Europe' },
+  { value: 'Europe/Berlin', label: 'Berlin' },
   { value: 'Africa/Lagos', label: 'West Africa (WAT)' },
   { value: 'Africa/Johannesburg', label: 'South Africa (SAST)' },
   { value: 'Africa/Conakry', label: 'Conakry (GMT)' },
@@ -133,7 +174,7 @@ const timezoneOptions = [
   { value: 'Asia/Shanghai', label: 'China (CST)' },
   { value: 'Asia/Singapore', label: 'Singapore (SGT)' },
   { value: 'Asia/Tokyo', label: 'Tokyo (JST)' },
-  { value: 'Australia/Sydney', label: 'Sydney (AEST)' },
+  { value: 'Australia/Sydney', label: 'Sydney' },
   { value: 'UTC', label: 'UTC' },
 ];
 

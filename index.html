@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Mastery Program | October Cohort</title>
-  <meta name="description" content="Join the October cohort of the AI Mastery Program. Build websites, games, Chrome extensions, and useful tools with Cursor — $100 per session, first 2 free with a referral code." />
+  <title>AI Mastery Program | November Friends Cohort</title>
+  <meta name="description" content="Join the free November friends cohort. Two weeks, 10 seats, starting November 14 at 8:00–9:30 AM Pacific Time. Learn how to use AI tools to build and deploy a website." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -22,13 +22,15 @@
       </div>
       <div class="container roadmap-header reveal-stagger">
         <div class="roadmap-header-text">
-          <p class="roadmap-eyebrow reveal-item">AI Education Program · October Cohort</p>
+          <p class="roadmap-eyebrow reveal-item" data-cohort-eyebrow>AI Education Program · November Friends Cohort</p>
           <blockquote class="roadmap-tagline program-quote reveal-item" data-program-tagline>
             Learn how to build with AI before AI learns to replace you.
           </blockquote>
-          <h1 class="reveal-item">Course Roadmap</h1>
-          <p class="roadmap-subtitle reveal-item">From zero code to shipped projects with Cursor.</p>
-          <p class="cohort-start-banner reveal-item">First live session: <strong data-cohort-start>Saturday, October 3, 2026 · 8:00–10:00 AM Pacific Time</strong></p>
+          <h1 class="reveal-item">Build and Deploy a Website</h1>
+          <p class="roadmap-subtitle reveal-item">Two free weeks. Learn how to use AI tools to build a website and put it online.</p>
+          <p class="cohort-start-banner reveal-item">First live session: <strong data-cohort-start>Saturday, November 14, 2026 · 8:00–9:30 AM Pacific Time</strong></p>
+          <p class="cohort-offer-line reveal-item"><span data-cohort-offer>Free for friends · 10 seats</span> · <span data-cohort-range>November 14–22, 2026</span></p>
+          <p class="cohort-paid-note reveal-item" data-paid-program>The full paid program begins at the beginning of January 2027.</p>
           <div class="countdown-wrap reveal-item" id="countdown-wrap" hidden>
             <span class="countdown-label">Starts in</span>
             <div class="countdown-timer" id="countdown-timer" aria-live="polite"></div>
@@ -36,13 +38,13 @@
         </div>
         <div class="roadmap-stats-pill reveal-item tilt-card">
           <div class="roadmap-stats-col">
-            <span class="roadmap-stats-value" data-pricing-headline>$100/session</span>
-            <span class="roadmap-stats-label" data-pricing-subline>Referral: 2 free</span>
+            <span class="roadmap-stats-value" data-pricing-headline>Free</span>
+            <span class="roadmap-stats-label" data-pricing-subline>10 seats</span>
           </div>
           <div class="roadmap-stats-divider" aria-hidden="true"></div>
           <div class="roadmap-stats-col">
-            <span class="roadmap-stats-value" data-cohort-weeks>6 Weeks</span>
-            <span class="roadmap-stats-label">Course path</span>
+            <span class="roadmap-stats-value" data-cohort-weeks>2 Weeks</span>
+            <span class="roadmap-stats-label">Friends cohort</span>
           </div>
         </div>
       </div>
@@ -51,13 +53,13 @@
 
       <div class="container roadmap-phase-detail reveal-on-scroll" id="roadmap-phase-detail" hidden></div>
 
-      <div class="container roadmap-visual-wrap reveal-on-scroll">
+      <div class="container roadmap-visual-wrap roadmap-visual-wrap--cards reveal-on-scroll">
         <div class="roadmap-svg-frame" id="roadmap-svg-frame">
           <div class="roadmap-equations roadmap-equations--svg" id="roadmap-equations-svg" aria-hidden="true"></div>
           <img
             class="roadmap-svg-desktop"
             src="assets/course-roadmap.svg"
-            alt="Course roadmap: six weeks from first website and browser game to AI Chrome extension and shipped capstone tool"
+            alt="Two-week path: build a website with AI tools, then deploy it"
             width="1600"
             height="900"
           />
@@ -71,7 +73,11 @@
         <div class="roadmap-footer-bar">
           <p class="roadmap-footer-item">
             <strong>Schedule:</strong>
-            <span data-weekly-schedule>Saturday &amp; Sunday 8–10 AM practice &amp; mastery Pacific Time</span>
+            <span data-weekly-schedule>Saturday &amp; Sunday, 8:00–9:30 AM Pacific Time</span>
+          </p>
+          <p class="roadmap-footer-item">
+            <strong>After this:</strong>
+            <span data-paid-program>The full paid program begins at the beginning of January 2027.</span>
           </p>
           <div class="roadmap-footer-item roadmap-footer-item--tools">
             <strong>Tools:</strong>
@@ -79,10 +85,7 @@
               <li>Cursor</li>
               <li>ChatGPT</li>
               <li>GitHub</li>
-              <li>OpenAI</li>
-              <li>Chrome Extensions</li>
               <li>GitHub Pages</li>
-              <li>Hostinger</li>
             </ul>
           </div>
         </div>
@@ -100,7 +103,7 @@
 
       <div class="container roadmap-cta-row reveal-on-scroll">
         <div class="btn-group">
-          <button type="button" id="join-beta-btn" class="btn btn-primary btn-shine">Enroll Now</button>
+          <button type="button" id="join-beta-btn" class="btn btn-primary btn-shine">Reserve a Seat</button>
           <a href="success.html" class="btn btn-secondary">Get Ready</a>
         </div>
       </div>
@@ -112,11 +115,11 @@
     <div class="beta-modal-overlay">
       <div class="beta-modal beta-modal--join" role="dialog" aria-labelledby="join-modal-title" aria-modal="true">
         <button type="button" class="beta-modal-dismiss" data-close-modal="join-modal" aria-label="Close">&times;</button>
-        <p class="beta-modal-eyebrow">Have a referral code?</p>
-        <h3 id="join-modal-title">Unlock your first 2 sessions free.</h3>
+        <p class="beta-modal-eyebrow">Friends cohort</p>
+        <h3 id="join-modal-title">Claim one of 10 free seats.</h3>
         <div class="beta-modal-message">
           <p>
-            Enter the referral code you received to get Sessions 1 and 2 at no cost. Without a code, full tuition starts at Session 1.
+            Enter the code you received. This two-week cohort is free for friends, and seats are limited to 10.
           </p>
         </div>
         <div id="beta-gate">
@@ -127,11 +130,8 @@
           </div>
           <p id="beta-gate-error" class="beta-gate-error" hidden>That didn't work. Try again.</p>
           <div class="btn-group beta-gate-actions">
-            <button type="button" id="beta-gate-continue" class="btn btn-primary">Apply Referral Code</button>
+            <button type="button" id="beta-gate-continue" class="btn btn-primary">Claim My Seat</button>
           </div>
-          <p class="referral-skip-wrap">
-            <button type="button" id="skip-referral-btn" class="referral-skip-link">Continue without referral</button>
-          </p>
         </div>
       </div>
     </div>
@@ -143,14 +143,14 @@
       <div id="confetti-container" class="confetti-container" aria-hidden="true"></div>
       <div class="beta-modal beta-modal--celebrate beta-modal--enroll" role="dialog" aria-labelledby="enroll-modal-title" aria-modal="true">
         <button type="button" class="beta-modal-dismiss" data-close-modal="enroll-modal" aria-label="Close">&times;</button>
-        <h3 id="enroll-modal-title">Enroll in the October cohort</h3>
+        <h3 id="enroll-modal-title">Reserve your free seat</h3>
         <div class="beta-modal-message">
-          <p id="enroll-modal-summary">Choose how you want to pay for your sessions.</p>
-          <p id="enroll-total" class="enroll-total">Program total: $1,200</p>
+          <p id="enroll-modal-summary">Your code is in. Complete the form to claim your seat. We will send the class link after your seat is confirmed.</p>
+          <p id="enroll-total" class="enroll-total" hidden>Program total: $0</p>
         </div>
-        <div id="payment-plans-mount" class="payment-plans-grid" role="radiogroup" aria-label="Payment plan"></div>
-        <p class="pricing-policy-callout">Your class link will be sent after payment is confirmed.</p>
-        <button type="button" id="enroll-complete-btn" class="btn btn-primary" disabled>Complete Signup</button>
+        <div id="payment-plans-mount" class="payment-plans-grid" role="radiogroup" aria-label="Payment plan" hidden></div>
+        <p class="pricing-policy-callout">Your class link will be sent after your seat is confirmed.</p>
+        <button type="button" id="enroll-complete-btn" class="btn btn-primary">Complete Signup</button>
       </div>
     </div>
   </div>

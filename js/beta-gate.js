@@ -198,42 +198,42 @@ function initBetaGate() {
     if (enrollCompleteBtn) enrollCompleteBtn.disabled = !enabled;
   }
 
-  function updateEnrollModal(hasReferral) {
-    selectedPlanId = null;
-    setEnrollCompleteEnabled(false);
+  const offer = typeof cohortEnrollment !== 'undefined' ? cohortEnrollment : null;
+  const isFreeCohort = !offer || offer.freeForFriends;
+
+  if (offer) {
+    const joinEyebrow = document.querySelector('#join-modal .beta-modal-eyebrow');
+    const joinTitle = document.getElementById('join-modal-title');
+    const joinBody = document.querySelector('#join-modal .beta-modal-message p');
+    if (joinEyebrow && offer.joinEyebrow) joinEyebrow.textContent = offer.joinEyebrow;
+    if (joinTitle && offer.joinTitle) joinTitle.textContent = offer.joinTitle;
+    if (joinBody && offer.joinBody) joinBody.textContent = offer.joinBody;
+    if (continueBtn && offer.continueLabel) continueBtn.textContent = offer.continueLabel;
+    if (joinBtn && offer.cta) joinBtn.textContent = offer.cta;
+  }
+
+  function showEnrollModal() {
+    spawnConfetti();
+    closeModal('join-modal');
 
     const titleEl = document.getElementById('enroll-modal-title');
     const summaryEl = document.getElementById('enroll-modal-summary');
     const totalEl = document.getElementById('enroll-total');
+    const plans = document.getElementById('payment-plans-mount');
+    const policy = document.querySelector('#enroll-modal .pricing-policy-callout');
 
-    if (titleEl) {
-      titleEl.textContent = hasReferral
-        ? 'Referral applied — first 2 sessions free'
-        : 'Enroll in the October cohort';
+    if (isFreeCohort) {
+      if (titleEl && offer) titleEl.textContent = offer.enrollTitle;
+      if (summaryEl && offer) summaryEl.textContent = offer.enrollSummary;
+      if (totalEl) totalEl.hidden = true;
+      if (plans) plans.hidden = true;
+      if (policy) policy.textContent = 'Your class link will be sent after your seat is confirmed.';
+      if (enrollCompleteBtn && offer && offer.enrollButton) {
+        enrollCompleteBtn.textContent = offer.enrollButton;
+      }
+      setEnrollCompleteEnabled(true);
     }
 
-    if (summaryEl) {
-      summaryEl.textContent = hasReferral
-        ? 'Sessions 1 and 2 are free. Choose how you want to pay for the remaining 10 sessions.'
-        : 'Full price starts at Session 1. Choose how you want to pay for all 12 sessions.';
-    }
-
-    if (totalEl) {
-      totalEl.textContent = `Program total: ${formatEnrollmentCurrency(getEnrollmentTotal(hasReferral))}`;
-    }
-
-    if (typeof renderPaymentPlans === 'function') {
-      renderPaymentPlans(hasReferral, (planId) => {
-        selectedPlanId = planId;
-        setEnrollCompleteEnabled(true);
-      });
-    }
-  }
-
-  function showEnrollModal(hasReferral) {
-    if (hasReferral) spawnConfetti();
-    closeModal('join-modal');
-    updateEnrollModal(hasReferral);
     openModal('enroll-modal');
   }
 
@@ -259,7 +259,7 @@ function initBetaGate() {
     const box3Ok = isValidGatePair(box3, pairs);
 
     if (box1Ok && box2Ok && box3Ok) {
-      showEnrollModal(true);
+      showEnrollModal();
     } else {
       showError();
     }
@@ -269,15 +269,15 @@ function initBetaGate() {
     continueBtn.addEventListener('click', onContinue);
   }
 
-  if (skipReferralBtn) {
+  if (skipReferralBtn && !isFreeCohort) {
     skipReferralBtn.addEventListener('click', () => {
-      showEnrollModal(false);
+      showEnrollModal();
     });
   }
 
   if (enrollCompleteBtn) {
     enrollCompleteBtn.addEventListener('click', () => {
-      if (!selectedPlanId) return;
+      if (!isFreeCohort && !selectedPlanId) return;
       closeModal('enroll-modal');
       openNotionForm();
     });
