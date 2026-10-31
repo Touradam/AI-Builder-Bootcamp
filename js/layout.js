@@ -54,7 +54,7 @@ function renderFooter() {
       <div class="footer-grid footer-grid-simple">
         <div>
           <h3>Get in Touch</h3>
-          <p>Email: <a href="mailto:touradam3@gmail.com">touradam3@gmail.com</a></p>
+          <p>Email: <a href="mailto:adamatourelab@gmail.com">adamatourelab@gmail.com</a></p>
         </div>
       </div>
       <div class="footer-bottom">
