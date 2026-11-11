@@ -42,5 +42,13 @@ katelen.png
 scripts/
 Classes/
 
-# Unused assets
-assets/qr-website.png
+# Brand notes stay local
+brand/
+
+# Only the images the public site uses
+assets/*
+!assets/adama.jpg
+!assets/course-roadmap.svg
+!assets/logo.svg
+!assets/cohort/
+!assets/cohort/**
