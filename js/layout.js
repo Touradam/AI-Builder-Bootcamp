@@ -46,7 +46,7 @@ function renderHeader() {
 function renderFooter() {
   const year = new Date().getFullYear();
   const copyrightHolder =
-    typeof COPYRIGHT_HOLDER !== 'undefined' ? COPYRIGHT_HOLDER : 'Tourdam AI Lab';
+    typeof COPYRIGHT_HOLDER !== 'undefined' ? COPYRIGHT_HOLDER : 'Adama Touré Lab';
   const footer = document.createElement('footer');
   footer.className = 'site-footer';
   footer.innerHTML = `

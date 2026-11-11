@@ -189,17 +189,40 @@ function initRevealAnimations() {
   document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
 }
 
+function renderSessionPhotos(phase) {
+  const photos = (phase.sessionDetails || []).filter((session) => session.image);
+  if (!photos.length) return '';
+
+  return `
+    <div class="roadmap-card-photos">
+      ${photos
+        .map(
+          (session) => `
+        <figure class="roadmap-card-photo">
+          <img src="${session.image}" alt="${session.imageAlt || session.title}" width="1024" height="1024" loading="lazy" />
+          <figcaption>${session.label}</figcaption>
+        </figure>
+      `
+        )
+        .join('')}
+    </div>
+  `;
+}
+
 function renderFlipCardFront(phase) {
   return `
-    <div class="roadmap-card-num">${phase.id}</div>
-    <div class="roadmap-card-body">
-      <span class="roadmap-card-tag">${phase.tag}</span>
-      <h2>${phase.title}</h2>
-      <p class="roadmap-card-lead">${phase.lead}</p>
-      <ul>
-        ${phase.sessions.map((s) => `<li>${s}</li>`).join('')}
-      </ul>
-      <span class="roadmap-card-outcome">${phase.outcome}</span>
+    ${renderSessionPhotos(phase)}
+    <div class="roadmap-card-front-row">
+      <div class="roadmap-card-num">${phase.id}</div>
+      <div class="roadmap-card-body">
+        <span class="roadmap-card-tag">${phase.tag}</span>
+        <h2>${phase.title}</h2>
+        <p class="roadmap-card-lead">${phase.lead}</p>
+        <ul>
+          ${phase.sessions.map((s) => `<li>${s}</li>`).join('')}
+        </ul>
+        <span class="roadmap-card-outcome">${phase.outcome}</span>
+      </div>
     </div>
   `;
 }
@@ -217,7 +240,7 @@ function renderFlipCardBack(phase) {
     <div class="roadmap-card-back-inner">
       <span class="roadmap-card-tag">${phase.tag}</span>
       <h3>${phase.title}</h3>
-      <p class="roadmap-flip-rhythm">Saturday · Sunday</p>
+      <p class="roadmap-flip-rhythm">${phase.when || 'Saturday · Sunday'}</p>
       <ul class="roadmap-flip-sessions">
         ${details
           .map(

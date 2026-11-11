@@ -1,12 +1,12 @@
 const SITE_NAME = 'AI Mastery Program';
-const COPYRIGHT_HOLDER = 'Tourdam AI Lab';
+const COPYRIGHT_HOLDER = 'Adama Touré Lab';
 const LOGO_SRC = 'assets/logo.svg';
 const programTagline = 'Learn how to build with AI before AI learns to replace you.';
 
 const instructorProfile = {
   name: 'Adama Touré',
   role: 'AI Builder instructor',
-  lab: 'Tourdam AI Lab',
+  lab: 'Adama Touré Lab',
   photo: 'assets/adama.jpg',
   tagline: 'Click to learn more',
   bio: [
@@ -29,7 +29,7 @@ const cohortSchedule = {
   firstSessionDateTime: '2026-11-14T08:00:00-08:00',
   firstSessionDay: 'Saturday, November 14, 2026',
   firstSessionTime: '8:00–9:30 AM Pacific Time',
-  firstSessionLabel: 'Session 1 · AI tools and your first page',
+  firstSessionLabel: 'Session 1 · Become an AI Builder',
   dateRangeLabel: 'November 14–22, 2026',
   timezone: 'America/Los_Angeles',
   timezoneLabel: 'Pacific Time',
@@ -102,24 +102,24 @@ const paymentPlans = [
 
 const betaLearnTopics = [
   {
-    title: 'AI tools for building',
+    title: 'The builder mindset',
     description:
-      'Use Cursor and ChatGPT to build a real website, even if you have never written code before.',
+      'Tell a chatbot user from an AI builder, and stay in control of what the tool changes.',
   },
   {
-    title: 'Pages that look finished',
+    title: 'Cursor and prompts',
     description:
-      'Structure the site, write the content, and shape the layout with AI beside you.',
+      'Describe the work in plain language, review what Cursor writes, and approve each change.',
   },
   {
-    title: 'Git & GitHub',
+    title: 'Git and GitHub',
     description:
-      'Save your work, track changes, and keep the project in a place you can update.',
+      'Save the project, commit, and push so the work has a home you can update.',
   },
   {
-    title: 'Deploy the site',
+    title: 'A live website',
     description:
-      'Publish on GitHub Pages so anyone with the link can open what you built.',
+      'Publish on GitHub Pages, check it on a phone, and connect an optional custom domain.',
   },
 ];
 
@@ -169,43 +169,41 @@ const floatingEquationsHero = [
   { html: '<span class="math-sym">P</span><span class="math-op">=</span><span class="math-sym">VI</span>', x: 2, y: 72, size: 1.6, rot: -5, duration: 26 },
 ];
 
-/* Hotspot bounds match course-roadmap.svg viewBox 1600×900 */
+/* Hotspot bounds match course-roadmap.svg viewBox 1600×900. The live page uses the flip cards. */
 const roadmapHotspots = [
-  { phase: 1, x: 2.5, y: 35.333, w: 15.125, h: 32.444 },
-  { phase: 2, x: 18.625, y: 51.778, w: 15.125, h: 32.444 },
-  { phase: 3, x: 34.75, y: 35.333, w: 15.125, h: 32.444 },
-  { phase: 4, x: 50.875, y: 51.778, w: 15.125, h: 32.444 },
-  { phase: 5, x: 67, y: 35.333, w: 15.125, h: 32.444 },
-  { phase: 6, x: 83.125, y: 51.778, w: 15.125, h: 32.444 },
+  { phase: 1, x: 5, y: 37.778, w: 15.125, h: 32.444 },
+  { phase: 2, x: 48.75, y: 37.778, w: 15.125, h: 32.444 },
 ];
 
 const roadmapPhases = [
   {
     id: 1,
     tag: 'Week 1',
-    title: 'Build the Site',
-    lead: 'AI tools, pages, and layout',
-    sessions: ['S1: AI tools + first page', 'S2: Build the site'],
-    outcome: 'Outcome: website taking shape',
+    title: 'Learn to Build',
+    lead: 'Mindset, Cursor, and first apps',
+    when: 'November 14–15 · Saturday and Sunday',
+    sessions: ['S1: Become an AI builder', 'S2: Three apps on GitHub'],
+    outcome: 'Outcome: code on GitHub',
     icon: '01',
-    summary: 'End week 1 with a website you built using AI tools.',
+    summary: 'End the first weekend with Cursor installed, three small apps built, and the code on GitHub.',
     sessionDetails: [
-      { label: 'S1', day: 'Saturday', type: 'Intro', title: 'AI tools and a first page', description: 'Set up Cursor, see how AI helps you build, and open your first page in the browser.' },
-      { label: 'S2', day: 'Sunday', type: 'Practice', title: 'Build the site', description: 'Use AI tools to add pages, write the content, and shape the layout.' },
+      { label: 'S1', day: 'Saturday', type: 'Nov 14', title: 'Become an AI Builder', description: 'Meet the cohort, install Cursor, and learn the difference between asking a chatbot and building with AI.', image: 'assets/cohort/session-1-mindset.jpg', imageAlt: 'Illustration of Atlai climbing golden steps from a chat bubble toward a builder desk' },
+      { label: 'S2', day: 'Sunday', type: 'Nov 15', title: 'Prompting and First Builds', description: 'Ask AI to draft a stronger prompt, build a calculator, a timer, and a counter, then publish the code on GitHub.', image: 'assets/cohort/session-2-publish.jpg', imageAlt: 'Illustration of Atlai publishing a glowing webpage from her laptop toward a globe' },
     ],
   },
   {
     id: 2,
     tag: 'Week 2',
-    title: 'Deploy the Site',
-    lead: 'GitHub and a live URL',
-    sessions: ['S3: Git + GitHub', 'S4: Deploy live'],
+    title: 'Put It Online',
+    lead: 'Live site, phone check, optional domain',
+    when: 'November 21–22 · Saturday and Sunday',
+    sessions: ['S3: Website goes live', 'S4: Optional domain'],
     outcome: 'Outcome: website online',
     icon: '02',
-    summary: 'End week 2 with your website deployed so anyone can open it.',
+    summary: 'End the second weekend with a personal website live on GitHub Pages, checked on a phone, and an optional domain if you want one.',
     sessionDetails: [
-      { label: 'S3', day: 'Saturday', type: 'Practice', title: 'Git and GitHub', description: 'Save your work, commit with clear habits, and push the site to GitHub.' },
-      { label: 'S4', day: 'Sunday', type: 'Mastery', title: 'Deploy live', description: 'Publish on GitHub Pages, open the live link, and learn how to update it.' },
+      { label: 'S3', day: 'Saturday', type: 'Nov 21', title: 'Your Website Goes Live', description: 'Build a personal website, portfolio, or digital business card, publish it on GitHub Pages, and run one update yourself.', image: 'assets/cohort/session-3-website.jpg', imageAlt: 'Illustration of Atlai arranging glowing golden website cards into her personal site' },
+      { label: 'S4', day: 'Sunday', type: 'Nov 22', title: 'Your Own Domain', description: 'Polish the site for phones and follow one update from Cursor to the live address. A custom domain is optional.', image: 'assets/cohort/session-4-domain.jpg', imageAlt: 'Illustration of Atlai connecting a golden globe to the website she maintains' },
     ],
   },
 ];
