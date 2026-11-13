@@ -1,5 +1,5 @@
 const SITE_NAME = 'AI Mastery Program';
-const COPYRIGHT_HOLDER = 'Adama Touré Lab';
+const COPYRIGHT_HOLDER = 'adamatourelab';
 const LOGO_SRC = 'assets/logo.svg';
 const programTagline = 'Learn how to build with AI before AI learns to replace you.';
 

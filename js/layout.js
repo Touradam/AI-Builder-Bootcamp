@@ -11,7 +11,6 @@ function getCurrentPage() {
 
 function renderHeader() {
   const current = getCurrentPage();
-  const siteName = typeof SITE_NAME !== 'undefined' ? SITE_NAME : 'AI Education Program';
   const logoSrc = typeof LOGO_SRC !== 'undefined' ? LOGO_SRC : 'assets/logo.svg';
   const navLinks = NAV_ITEMS.map(
     (item) =>
@@ -23,11 +22,14 @@ function renderHeader() {
   header.innerHTML = `
     <nav class="container" aria-label="Main navigation">
       <div class="nav-row">
-        <a href="index.html" class="logo" aria-label="${siteName} home">
-          <img src="${logoSrc}" alt="${siteName}" class="logo-img" width="160" height="48" />
+        <a href="index.html" class="logo" aria-label="Adamatourelab home">
+          <img src="${logoSrc}" alt="" class="logo-img" width="160" height="48" />
+          <span class="logo-word">Adamatourelab</span>
         </a>
-        <div class="nav-desktop">${navLinks}</div>
-        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
+        <p class="nav-center">ATL Ai Builder</p>
+        <div class="nav-end">
+          <div class="nav-desktop">${navLinks}</div>
+          <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav">
           <span class="sr-only">Open menu</span>
           <svg class="icon-menu" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -35,7 +37,8 @@ function renderHeader() {
           <svg class="icon-close" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true" hidden>
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
-        </button>
+          </button>
+        </div>
       </div>
       <div id="mobile-nav" class="nav-mobile">${navLinks}</div>
     </nav>
@@ -46,7 +49,7 @@ function renderHeader() {
 function renderFooter() {
   const year = new Date().getFullYear();
   const copyrightHolder =
-    typeof COPYRIGHT_HOLDER !== 'undefined' ? COPYRIGHT_HOLDER : 'Adama Touré Lab';
+    typeof COPYRIGHT_HOLDER !== 'undefined' ? COPYRIGHT_HOLDER : 'adamatourelab';
   const footer = document.createElement('footer');
   footer.className = 'site-footer';
   footer.innerHTML = `
